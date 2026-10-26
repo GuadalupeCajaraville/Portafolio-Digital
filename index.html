@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guadalupe Cajaraville | Portafolio Digital</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            base: '#121615',
+                            surface: '#1E2322',
+                            card: '#2A302E',
+                            border: '#363E3A'
+                        },
+                        olive: {
+                            dark: '#283D2C',
+                            DEFAULT: '#3A5A40',
+                            accent: '#588157',
+                            light: '#A3B18A',
+                            soft: '#CBD5C0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121615;
+            color: #E2E8F0;
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #588157 0%, #1E2322 100%);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(58, 90, 64, 0.3);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121615;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3A5A40;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #588157;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col selection:bg-olive selection:text-white">
+
+    <!-- NAV BAR -->
+    <nav class="sticky top-0 z-50 bg-dark-base/90 backdrop-blur-md border-b border-dark-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-olive flex items-center justify-center font-bold text-white shadow-md border border-olive-light/30">
+                        GC
+                    </div>
+                    <span class="font-semibold text-lg tracking-tight text-white">Guadalupe <span class="text-olive-light">Cajaraville</span></span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#sobre-mi" class="text-gray-300 hover:text-olive-light transition-colors text-sm font-medium">Sobre Mí</a>
+                    <a href="#proyectos" class="text-gray-300 hover:text-olive-light transition-colors text-sm font-medium">Proyectos y Experiencias</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-olive-light transition-colors text-sm font-medium">Servicios</a>
+                    <a href="#contacto" class="bg-olive hover:bg-olive-accent text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm">Contacto</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white focus:outline-none" aria-label="Abrir menú">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-surface border-b border-dark-border px-4 pt-2 pb-4 space-y-2">
+            <a href="#sobre-mi" class="block py-2 text-gray-300 hover:text-olive-light">Sobre Mí</a>
+            <a href="#proyectos" class="block py-2 text-gray-300 hover:text-olive-light">Proyectos y Experiencias</a>
+            <a href="#servicios" class="block py-2 text-gray-300 hover:text-olive-light">Servicios</a>
+            <a href="#contacto" class="block py-2 text-olive-light font-semibold">Contacto</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- HERO / SOBRE MÍ SECTION -->
+        <section id="sobre-mi" class="py-16 md:py-24 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div class="absolute -top-40 -right-40 w-96 h-96 bg-olive-accent rounded-full blur-3xl"></div>
+                <div class="absolute top-1/2 -left-40 w-80 h-80 bg-olive rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Imagen de Perfil estilizada -->
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative group">
+                            <!-- Marco Verde Oliva Elegante -->
+                            <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-olive via-olive-accent to-olive-light opacity-80 group-hover:opacity-100 blur transition duration-300"></div>
+                            <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden bg-dark-surface border-2 border-olive/50 shadow-2xl flex items-center justify-center">
+                                <!-- Ilustración / Avatar representativo de Guadalupe -->
+                                <svg class="w-full h-full text-olive-dark bg-dark-card" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="200" height="200" fill="#1E2322"/>
+                                    <!-- Fondo sutil decorativo -->
+                                    <circle cx="100" cy="100" r="80" fill="#3A5A40" fill-opacity="0.2"/>
+                                    <path d="M40 160 C50 120, 150 120, 160 160" fill="#3A5A40" opacity="0.8"/>
+                                    <circle cx="100" cy="85" r="35" fill="#A3B18A"/>
+                                    <path d="M65 80 C65 50, 135 50, 135 80 C135 60, 65 60, 65 80 Z" fill="#283D2C"/>
+                                    <path d="M65 70 Q100 40 135 70 Q100 50 65 70 Z" fill="#588157"/>
+                                    <!-- Detalles de insignia del colegio -->
+                                    <circle cx="100" cy="140" r="10" fill="#A3B18A" opacity="0.6"/>
+                                </svg>
+                                <!-- Overlay badge -->
+                                <div class="absolute bottom-3 right-3 bg-dark-base/90 backdrop-blur border border-olive-accent/40 text-olive-light text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+                                    <i class="fa-solid fa-[#588157] fa-graduation-cap"></i> Instituto Cristo Obrero
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Perfil -->
+                    <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                        <div>
+                            <span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider bg-olive/30 text-olive-light border border-olive/40 uppercase mb-3">
+                                Portafolio Digital
+                            </span>
+                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                                Guadalupe Cajaraville
+                            </h1>
+                            <p class="text-lg sm:text-xl text-olive-light font-medium mt-2">
+                                Estudiante de Secundario — <span class="text-gray-300">Último Año</span>
+                            </p>
+                        </div>
+
+                        <div class="bg-dark-surface p-6 rounded-2xl border border-dark-border shadow-lg space-y-3">
+                            <h2 class="text-sm font-semibold uppercase tracking-wider text-olive-accent flex items-center gap-2 justify-center md:justify-start">
+                                <i class="fa-solid fa-user-circle"></i> Sobre Mí
+                            </h2>
+                            <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                                "Mi nombre es <strong class="text-white font-semibold">Guadalupe Cajaraville</strong>, soy estudiante de último año en el <strong class="text-white font-semibold">Instituto Cristo Obrero</strong>. En los dos últimos años, estuve realizando las <strong class="text-olive-light font-semibold">Actividades Vinculadas al Futuro</strong>, donde aprendí a ser responsable, a interactuar eficazmente con las personas, trabajar en equipo y aprender rápidamente conceptos y actividades nuevas."
+                            </p>
+                        </div>
+
+                        <!-- Highlights de competencias -->
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start pt-2">
+                            <span class="bg-dark-card border border-dark-border px-3 py-1.5 rounded-lg text-xs font-medium text-gray-300 flex items-center gap-2">
+                                <i class="fa-solid fa-users text-olive-accent"></i> Trabajo en equipo
+                            </span>
+                            <span class="bg-dark-card border border-dark-border px-3 py-1.5 rounded-lg text-xs font-medium text-gray-300 flex items-center gap-2">
+                                <i class="fa-solid fa-bolt text-olive-accent"></i> Aprendizaje rápido
+                            </span>
+                            <span class="bg-dark-card border border-dark-border px-3 py-1.5 rounded-lg text-xs font-medium text-gray-300 flex items-center gap-2">
+                                <i class="fa-solid fa-handshake text-olive-accent"></i> Responsabilidad
+                            </span>
+                            <span class="bg-dark-card border border-dark-border px-3 py-1.5 rounded-lg text-xs font-medium text-gray-300 flex items-center gap-2">
+                                <i class="fa-solid fa-comments text-olive-accent"></i> Comunicación efectiva
+                            </span>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div class="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+                            <a href="#proyectos" class="bg-olive hover:bg-olive-accent text-white font-medium px-6 py-3 rounded-xl shadow-lg transition-all flex items-center gap-2">
+                                Explorer Proyectos <i class="fa-solid fa-arrow-down text-sm"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/guadalupe-cajaraville-9130873b5?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="bg-dark-card hover:bg-dark-border text-gray-200 border border-dark-border font-medium px-5 py-3 rounded-xl transition-all flex items-center gap-2">
+                                <i class="fa-brands fa-linkedin text-lg text-olive-light"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYECTOS Y EXPERIENCIAS SECTION -->
+        <section id="proyectos" class="py-16 bg-dark-surface/50 border-y border-dark-border">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Proyectos y Experiencias</h2>
+                    <p class="text-gray-400 mt-3 text-base sm:text-lg">
+                        Trayectoria académica, capacitaciones, talleres comunitarios y programas inmersivos realizados durante el secundario y Actividades Vinculadas al Futuro.
+                    </p>
+
+                    <!-- Filtros por categoría -->
+                    <div class="flex flex-wrap justify-center gap-2 mt-8" id="filter-buttons">
+                        <button onclick="filterProjects('all')" class="filter-btn active bg-olive text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-sm" data-category="all">
+                            Todos (14)
+                        </button>
+                        <button onclick="filterProjects('finanzas')" class="filter-btn bg-dark-card hover:bg-dark-border text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all border border-dark-border" data-category="finanzas">
+                            <i class="fa-solid fa-wallet text-xs mr-1"></i> Finanzas
+                        </button>
+                        <button onclick="filterProjects('ciencias')" class="filter-btn bg-dark-card hover:bg-dark-border text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all border border-dark-border" data-category="ciencias">
+                            <i class="fa-solid fa-flask text-xs mr-1"></i> Ciencias
+                        </button>
+                        <button onclick="filterProjects('educacion')" class="filter-btn bg-dark-card hover:bg-dark-border text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all border border-dark-border" data-category="educacion">
+                            <i class="fa-solid fa-graduation-cap text-xs mr-1"></i> Educación & Futuro
+                        </button>
+                        <button onclick="filterProjects('ecologia')" class="filter-btn bg-dark-card hover:bg-dark-border text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all border border-dark-border" data-category="ecologia">
+                            <i class="fa-solid fa-leaf text-xs mr-1"></i> Ecología & Huerta
+                        </button>
+                        <button onclick="filterProjects('cultura')" class="filter-btn bg-dark-card hover:bg-dark-border text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-all border border-dark-border" data-category="cultura">
+                            <i class="fa-solid fa-masks-theater text-xs mr-1"></i> Arte & Cultura
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lista / Grid de Tarjetas de Proyectos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                    
+                    <!-- 1. Semana de la Biología UBA (2025) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="ciencias">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-olive/20 text-olive-light text-xs px-2.5 py-1 rounded-md font-semibold border border-olive/30 flex items-center gap-1">
+                                    <i class="fa-solid fa-microscope text-xs"></i> Ciencias
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2025</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Facultad de Ciencias Exactas y Naturales UBA - Semana de la Biología</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Esta experiencia me permitió conocer más sobre el campo de la biología, explorar distintos temas relacionados con las ciencias naturales (Como por ejemplo: Extraer ADN de una banana) y ampliar mi interés por la investigación científica.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-building-columns text-olive-accent"></i> UBA - Exactas
+                        </div>
+                    </div>
+
+                    <!-- 2. Curso Educación Financiera JA (2025) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="finanzas">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-emerald-900/30 text-emerald-400 text-xs px-2.5 py-1 rounded-md font-semibold border border-emerald-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-coins text-xs"></i> Finanzas
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2025</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Curso de Educación Financiera - Junior Achievement Argentina</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                En este curso virtual aprendí los conceptos básicos de la educación financiera personal, cómo gestionar mi dinero, qué decisiones tomar basándome en mis ingresos y mis gastos, simulaciones de situaciones, cómo hacer y manejar un presupuesto, entre otras cosas.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 flex items-center justify-between">
+                            <span class="text-xs text-gray-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-award text-olive-accent"></i> Junior Achievement
+                            </span>
+                            <a href="https://drive.google.com/file/d/1yYuUMqA2T6Au_1-2BV2HDroaSZhxtTm3/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium bg-olive hover:bg-olive-accent text-white px-3 py-1.5 rounded-lg transition-colors">
+                                <i class="fa-solid fa-file-contract"></i> Certificado
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Banco Ciudad (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="finanzas">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-emerald-900/30 text-emerald-400 text-xs px-2.5 py-1 rounded-md font-semibold border border-emerald-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-wallet text-xs"></i> Finanzas
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Banco Ciudad - Taller de Educación Financiera</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Fue una capacitación por parte del Banco Ciudad, donde se enfocaron en enseñarnos cómo funcionan las billeteras virtuales, como resolver asuntos esenciales relacionados al banco, y cómo evitar estafas.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-building-bank text-olive-accent"></i> Banco Ciudad CABA
+                        </div>
+                    </div>
+
+                    <!-- 4. CBC UBA (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="educacion">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-blue-900/30 text-blue-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-blue-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-graduation-cap text-xs"></i> Universidad
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">CBC Universidad de Buenos Aires - UBA</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                En una de las sedes del CBC, una licenciada en psicología realizó una charla sobre cómo funciona la Universidad de Buenos Aires, como por ejemplo, como inscribirnos, métodos de estudios, como manejarse autónomamente en la universidad, que es el Ciclo Básico Común CBC, breve historia de la universidad, etc.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-landmark text-olive-accent"></i> Universidad de Buenos Aires
+                        </div>
+                    </div>
+
+                    <!-- 5. Semana de las Ciencias de la Tierra UBA (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="ciencias">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-olive/20 text-olive-light text-xs px-2.5 py-1 rounded-md font-semibold border border-olive/30 flex items-center gap-1">
+                                    <i class="fa-solid fa-earth-americas text-xs"></i> Ciencias
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Facultad de Ciencias Exactas y Naturales UBA - Semana de las Ciencias de la Tierra</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Asistí a las jornadas de divulgación científica organizadas por la Universidad de Buenos Aires. Participé en talleres interactivos, charlas con investigadores y demostraciones en laboratorios sobre geología, ciencias de la atmósfera y oceanografía.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-flask-vial text-olive-accent"></i> Divulgación Científica UBA
+                        </div>
+                    </div>
+
+                    <!-- 6. Taller Técnicas de Estudios UCA (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="educacion">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-blue-900/30 text-blue-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-blue-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-brain text-xs"></i> Educación
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Taller de Técnicas de Estudios para Universitarios - UCA</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                En este taller tuve la oportunidad de capacitarme sobre distintos métodos de estudios, uso de la Inteligencia Artificial, conocer y utilizar diferentes fuentes de información, y cómo organizarse en lo que respecta los horarios, exámenes y estudios.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-book-open text-olive-accent"></i> Universidad Católica Argentina
+                        </div>
+                    </div>
+
+                    <!-- 7. Curso Planifico mi Futuro JA (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="educacion">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-blue-900/30 text-blue-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-blue-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-briefcase text-xs"></i> Desarrollo Profesional
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Curso Planifico mi Futuro - Junior Achievement Argentina</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                En este curso virtual desarrolle la capacidad de hacer contactos profesionales a través de portales virtuales (Por ejemplo Linkedin), a armar un curriculum vitae, cómo reaccionar en una entrevista laboral y a conocer carreras, oportunidades, tendencias y profesiones claves.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 flex items-center justify-between">
+                            <span class="text-xs text-gray-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-award text-olive-accent"></i> Junior Achievement
+                            </span>
+                            <a href="https://drive.google.com/file/d/10rN4GABVMsgdjzdQuwfnvTg4i1yFSEQA/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium bg-olive hover:bg-olive-accent text-white px-3 py-1.5 rounded-lg transition-colors">
+                                <i class="fa-solid fa-file-contract"></i> Certificado
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 8. Curso Domino mis Cuentas JA (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="finanzas">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-emerald-900/30 text-emerald-400 text-xs px-2.5 py-1 rounded-md font-semibold border border-emerald-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-piggy-bank text-xs"></i> Finanzas
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Curso Domino mis Cuentas - Junior Achievement Argentina</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Curso virtual en el cual desarrolle habilidades para tomar decisiones informadas sobre mis cuentas, hábitos financieros saludables y manejo de dinero de manera responsable.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 flex items-center justify-between">
+                            <span class="text-xs text-gray-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-award text-olive-accent"></i> Junior Achievement
+                            </span>
+                            <a href="https://drive.google.com/file/d/135tH2q-vGF2q0gJ1Kn8MYpuhPF7LfwYm/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium bg-olive hover:bg-olive-accent text-white px-3 py-1.5 rounded-lg transition-colors">
+                                <i class="fa-solid fa-file-contract"></i> Certificado
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 9. Corporación Sur CABA (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="ecologia">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-amber-900/30 text-amber-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-amber-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-seedling text-xs"></i> Ecología & Huerta
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Corporación Sur CABA - Taller de Huerta y Compostaje</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Taller donde nos enseñaban conceptos indispensables sobre ecología y sobre huerta, para luego aplicarlos en las prácticas. Entre esos conceptos, estaban los tips para evitar plagas en las plantas, cómo armar una compostera, cómo organizarnos entre los grupos y cómo mantener la huerta.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-recycle text-olive-accent"></i> Corporación Buenos Aires Sur
+                        </div>
+                    </div>
+
+                    <!-- 10. Jardín San José Poupponiere (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="ecologia">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-amber-900/30 text-amber-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-amber-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-plant-wilt text-xs"></i> Proyecto Comunitario
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Jardín San José Poupponiere - Huerta Orgánica</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Armamos la compostera, nos organizamos con los grupos para traer materiales, plantamos plantas autóctonas y algunos vegetales, decoramos el espacio que utilizamos, aprendimos la importancia de llegar a horario y a organizar el espacio que utilizamos.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-hands-holding-circle text-olive-accent"></i> Trabajo Comunitario Práctico
+                        </div>
+                    </div>
+
+                    <!-- 11. Prácticas Inmersivas Centro de Simulación (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="educacion">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-purple-900/30 text-purple-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-purple-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-robot text-xs"></i> Tecnología & Robótica
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Prácticas Inmersivas - Centro de Simulación CABA</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Pusimos en práctica conceptos sobre programación inicial en un robot, trabajamos en equipos, aprendimos a utilizar los materiales tecnológicos que nos proporcionaban y aprendimos el detrás de los objetos tecnológicos.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-laptop-code text-olive-accent"></i> Centro de Simulación CABA
+                        </div>
+                    </div>
+
+                    <!-- 12. Visita Teatro Colón (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="cultura">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-rose-900/30 text-rose-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-rose-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-masks-theater text-xs"></i> Arte & Cultura
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Visita Guiada - Teatro Colón</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                En esta visita al Teatro Colón nos contaron la historia del lugar, nos dieron un recorrido y nos enseñaron todo el trabajo que se hace en las obras que presentan y su trabajo previo al estreno, desde el vestuario, la música, la escenografía, etc.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-landmark-flag text-olive-accent"></i> Teatro Colón Buenos Aires
+                        </div>
+                    </div>
+
+                    <!-- 13. Visita Colón Fábrica (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="cultura">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-rose-900/30 text-rose-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-rose-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-palette text-xs"></i> Arte & Producción
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Visita Colón Fábrica</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                En esta oportunidad pudimos ver el almacén que contiene algunos vestuarios, objetos y lienzos de fondo que utilizan para las presentaciones en el teatro, también nos hablaron del trabajo que lleva montar una obra.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-boxes-packing text-olive-accent"></i> Colón Fábrica (La Boca)
+                        </div>
+                    </div>
+
+                    <!-- 14. Espectáculo Teatro Colón (2026) -->
+                    <div class="project-card bg-dark-card rounded-xl p-6 border border-dark-border card-hover flex flex-col justify-between" data-category="cultura">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="bg-rose-900/30 text-rose-300 text-xs px-2.5 py-1 rounded-md font-semibold border border-rose-800/40 flex items-center gap-1">
+                                    <i class="fa-solid fa-[#588157] fa-ticket text-xs"></i> Espectáculo En Vivo
+                                </span>
+                                <span class="text-xs font-semibold text-gray-400 bg-dark-base px-2.5 py-1 rounded-md border border-dark-border">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Espectáculo Teatro Colón: “Principio de Éxtasis”</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                Fuimos a ver el espectáculo “Principio de éxtasis”, que está basado en el libro “El Aleph” del reconocido autor argentino Jorge Luis Borges.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-dark-border/50 text-xs text-gray-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-book-bookmark text-olive-accent"></i> Inspirado en Jorge Luis Borges
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS SECTION -->
+        <section id="servicios" class="py-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-olive-light font-semibold text-xs tracking-widest uppercase bg-olive/20 px-3 py-1 rounded-full border border-olive/30">
+                        Capacidades y Competencias
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mt-3">Habilidades y Servicios</h2>
+                    <p class="text-gray-400 mt-2 text-base">
+                        Áreas en las que he adquirido experiencia práctica y aptitudes a través de mis formaciones y talleres.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Servicio 1 -->
+                    <div class="bg-dark-surface p-6 rounded-xl border border-dark-border hover:border-olive/60 transition-all group">
+                        <div class="w-12 h-12 rounded-lg bg-olive/20 text-olive-light flex items-center justify-center text-xl mb-4 group-hover:bg-olive group-hover:text-white transition-all">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Programación Básica</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Nociones iniciales de lógica de programación, control de estructuras y trabajo práctico con dispositivos tecnológicos y robótica inicial.
+                        </p>
+                    </div>
+
+                    <!-- Servicio 2 -->
+                    <div class="bg-dark-surface p-6 rounded-xl border border-dark-border hover:border-olive/60 transition-all group">
+                        <div class="w-12 h-12 rounded-lg bg-olive/20 text-olive-light flex items-center justify-center text-xl mb-4 group-hover:bg-olive group-hover:text-white transition-all">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Manejo de Finanzas</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Conocimiento de finanzas personales, gestión de billeteras virtuales, toma de decisiones informadas y prevención de estafas digitales.
+                        </p>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="bg-dark-surface p-6 rounded-xl border border-dark-border hover:border-olive/60 transition-all group">
+                        <div class="w-12 h-12 rounded-lg bg-olive/20 text-olive-light flex items-center justify-center text-xl mb-4 group-hover:bg-olive group-hover:text-white transition-all">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Realizar Presupuestos Personales</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Capacidad para planificar y estructurar presupuestos equilibrados basados en la relación de ingresos y gastos de forma responsable.
+                        </p>
+                    </div>
+
+                    <!-- Servicio 4 -->
+                    <div class="bg-dark-surface p-6 rounded-xl border border-dark-border hover:border-olive/60 transition-all group">
+                        <div class="w-12 h-12 rounded-lg bg-olive/20 text-olive-light flex items-center justify-center text-xl mb-4 group-hover:bg-olive group-hover:text-white transition-all">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Asistencia a Huertas</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Conocimientos prácticos sobre armado y mantenimiento de composteras, siembra de autóctonas/vegetales y prevención de plagas.
+                        </p>
+                    </div>
+
+                    <!-- Servicio 5 -->
+                    <div class="bg-dark-surface p-6 rounded-xl border border-dark-border hover:border-olive/60 transition-all group">
+                        <div class="w-12 h-12 rounded-lg bg-olive/20 text-olive-light flex items-center justify-center text-xl mb-4 group-hover:bg-olive group-hover:text-white transition-all">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Elaboración y Formato de CVs</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Armado de currículums vitae estructurados y profesionales, junto con recomendaciones para entrevistas y perfiles laborales virtuales.
+                        </p>
+                    </div>
+
+                    <!-- Servicio 6 -->
+                    <div class="bg-dark-surface p-6 rounded-xl border border-dark-border hover:border-olive/60 transition-all group">
+                        <div class="w-12 h-12 rounded-lg bg-olive/20 text-olive-light flex items-center justify-center text-xl mb-4 group-hover:bg-olive group-hover:text-white transition-all">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Apoyo Escolar y Técnicas de Estudio</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Organización de horarios de examen, empleo eficiente de fuentes de información confiables y uso de Inteligencia Artificial como herramienta de estudio.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO SECTION -->
+        <section id="contacto" class="py-16 bg-dark-surface/60 border-t border-dark-border relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="bg-dark-card rounded-2xl p-8 sm:p-10 border border-dark-border shadow-2xl relative overflow-hidden">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        
+                        <div class="md:col-span-5 space-y-4">
+                            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Ponte en Contacto</h2>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Estoy disponible para consultas, colaboraciones o proyectos académicos. ¡No dudes en escribirme!
+                            </p>
+
+                            <div class="space-y-4 pt-4">
+                                <a href="mailto:Guadalupecajaravilleacosta@gmail.com" class="flex items-center gap-3 p-3 rounded-xl bg-dark-surface border border-dark-border hover:border-olive/60 transition-all group">
+                                    <div class="w-10 h-10 rounded-lg bg-olive/20 text-olive-light group-hover:bg-olive group-hover:text-white flex items-center justify-center transition-all">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <p class="text-xs text-gray-400">Correo Electrónico</p>
+                                        <p class="text-sm font-medium text-white truncate">Guadalupecajaravilleacosta@gmail.com</p>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.linkedin.com/in/guadalupe-cajaraville-9130873b5?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-dark-surface border border-dark-border hover:border-olive/60 transition-all group">
+                                    <div class="w-10 h-10 rounded-lg bg-olive/20 text-olive-light group-hover:bg-olive group-hover:text-white flex items-center justify-center transition-all">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Perfil Profesional</p>
+                                        <p class="text-sm font-medium text-white">Guadalupe Cajaraville</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Formulario Interactival -->
+                        <div class="md:col-span-7">
+                            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4 bg-dark-surface p-6 rounded-xl border border-dark-border">
+                                <div>
+                                    <label for="name" class="block text-xs font-semibold text-gray-300 uppercase mb-1">Tu Nombre</label>
+                                    <input type="text" id="name" required placeholder="Nombre completo" class="w-full bg-dark-base border border-dark-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-olive-accent transition-colors">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold text-gray-300 uppercase mb-1">Tu Email</label>
+                                    <input type="email" id="email" required placeholder="ejemplo@correo.com" class="w-full bg-dark-base border border-dark-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-olive-accent transition-colors">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-xs font-semibold text-gray-300 uppercase mb-1">Mensaje</label>
+                                    <textarea id="message" rows="3" required placeholder="Escribe tu mensaje aquí..." class="w-full bg-dark-base border border-dark-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-olive-accent transition-colors resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-olive hover:bg-olive-accent text-white font-medium py-3 rounded-lg shadow-md transition-all flex items-center justify-center gap-2 text-sm">
+                                    <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
+                                </button>
+                            </form>
+                            
+                            <!-- Mensaje de confirmación -->
+                            <div id="form-feedback" class="hidden mt-4 p-4 rounded-lg bg-olive/20 border border-olive text-olive-light text-center text-sm">
+                                <i class="fa-solid fa-circle-check mr-2"></i> ¡Gracias por tu mensaje! Me pondré en contacto contigo a la brevedad.
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-base border-t border-dark-border py-8 text-center text-gray-500 text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© 2026 Guadalupe Cajaraville — Instituto Cristo Obrero</p>
+            <p class="text-xs text-gray-600 mt-1">Actividades Vinculadas al Futuro & Portafolio Digital Académico</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT PARA FILTROS Y MENÚ MOBILE -->
+    <script>
+        // Toggle Menú Mobile
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filtrado de Proyectos
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('bg-olive', 'text-white');
+                    btn.classList.remove('bg-dark-card', 'text-gray-300');
+                } else {
+                    btn.classList.remove('bg-olive', 'text-white');
+                    btn.classList.add('bg-dark-card', 'text-gray-300');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Simulación envío de formulario
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+            const feedback = document.getElementById('form-feedback');
+            
+            form.reset();
+            feedback.classList.remove('hidden');
+
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
