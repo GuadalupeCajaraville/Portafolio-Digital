@@ -92,13 +92,10 @@
 
         /* HERO SECTION */
         .hero {
-            padding: 9rem 2rem 5rem;
-            max-width: 1200px;
+            padding: 9rem 2rem 4rem;
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
+            text-align: center;
         }
 
         .hero-badge {
@@ -107,9 +104,9 @@
             gap: 0.5rem;
             background-color: var(--olive-soft);
             color: var(--olive-dark);
-            padding: 0.4rem 1rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
             border: 1px solid rgba(91, 107, 70, 0.2);
@@ -117,7 +114,7 @@
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             line-height: 1.15;
             color: var(--text-dark);
             margin-bottom: 1.5rem;
@@ -129,51 +126,16 @@
         }
 
         .hero-desc {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 540px;
-        }
-
-        .hero-img-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .profile-frame {
-            width: 310px;
-            height: 380px;
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 8px solid var(--bg-card);
-            background: #DCE3D6;
-        }
-
-        .profile-frame svg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-bg-shape {
-            position: absolute;
-            width: 310px;
-            height: 380px;
-            background-color: var(--olive-soft);
-            border-radius: 24px;
-            top: 20px;
-            right: 15px;
-            z-index: -1;
-            border: 2px dashed var(--olive-light);
+            margin: 0 auto 2.5rem;
+            max-width: 680px;
+            line-height: 1.7;
         }
 
         /* SECTION STYLES */
         section {
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -223,7 +185,7 @@
         }
 
         .card-img {
-            height: 190px;
+            height: 180px;
             width: 100%;
             background-color: var(--gray-bg);
             position: relative;
@@ -405,23 +367,8 @@
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 7rem;
-            }
-
-            .hero-desc {
-                margin: 0 auto 2rem;
-            }
-
-            .hero-img-container {
-                margin-top: 1rem;
-            }
-
-            .profile-frame, .hero-bg-shape {
-                width: 270px;
-                height: 330px;
+            .hero-title {
+                font-size: 2.8rem;
             }
 
             .grid-container {
@@ -455,47 +402,13 @@
 
     <!-- HERO SECTION -->
     <section class="hero" id="sobre-mi">
-        <div>
-            <div class="hero-badge">
-                <i class="fa-solid fa-graduation-cap"></i> Estudiante de Secundario
-            </div>
-            <h1 class="hero-title">Guadalupe <span>Cajaraville</span></h1>
-            <p class="hero-desc">
-                Soy estudiante de último año en el Instituto Cristo Obrero. Durante las Actividades Vinculadas al Futuro, desarrollé compromiso, capacidad de comunicación, trabajo en equipo y una rápida adaptación para aprender conceptos y herramientas nuevas.
-            </p>
+        <div class="hero-badge">
+            <i class="fa-solid fa-graduation-cap"></i> Estudiante de Secundario
         </div>
-        <div class="hero-img-container">
-            <div class="hero-bg-shape"></div>
-            <div class="profile-frame">
-                <!-- FOTO DE PERFIL PERMANENTE INTEGRADA -->
-                <svg viewBox="0 0 320 380" width="100%" height="100%">
-                    <rect width="320" height="380" fill="#EBF0E6"/>
-                    <!-- Fondo sueter blanco -->
-                    <path d="M 40,380 C 40,290 100,250 160,250 C 220,250 280,290 280,380 Z" fill="#FFFFFF"/>
-                    <!-- Cuello del sueter -->
-                    <path d="M 115,250 C 115,275 205,275 205,250 C 205,245 115,245 115,250 Z" fill="#E2E4E0"/>
-                    <path d="M 120,250 C 120,270 200,270 200,250 C 200,247 120,247 120,250 Z" fill="#FFFFFF"/>
-                    <!-- Cuello piel -->
-                    <path d="M 130,230 L 190,230 L 185,255 L 135,255 Z" fill="#E8B098"/>
-                    <!-- Cabeza/Rostro -->
-                    <ellipse cx="160" cy="180" rx="60" ry="68" fill="#F4C0A8"/>
-                    <!-- Nariz -->
-                    <path d="M 157,175 Q 160,195 167,195 Q 160,197 154,195" fill="none" stroke="#D19880" stroke-width="2.5" stroke-linecap="round"/>
-                    <!-- Ojos -->
-                    <ellipse cx="138" cy="168" rx="8" ry="5" fill="#3D2B1F"/>
-                    <ellipse cx="182" cy="168" rx="8" ry="5" fill="#3D2B1F"/>
-                    <!-- Cejas -->
-                    <path d="M 126,158 Q 138,153 150,158" fill="none" stroke="#2B1D14" stroke-width="3.5" stroke-linecap="round"/>
-                    <path d="M 170,158 Q 182,153 194,158" fill="none" stroke="#2B1D14" stroke-width="3.5" stroke-linecap="round"/>
-                    <!-- Labios -->
-                    <path d="M 146,212 Q 160,217 174,212" fill="none" stroke="#C27A6B" stroke-width="3" stroke-linecap="round"/>
-                    <!-- Cabello Ondulado Oscuro Largo -->
-                    <path d="M 160,110 C 100,110 95,150 95,200 C 95,260 110,310 115,350 C 110,300 125,230 115,190 C 115,130 160,120 160,120 C 160,120 205,130 205,190 C 195,230 210,300 205,350 C 210,310 225,260 225,200 C 225,150 220,110 160,110 Z" fill="#1C1817"/>
-                    <path d="M 160,112 C 120,112 105,135 102,170 C 115,145 140,135 160,138 C 180,135 205,145 218,170 C 215,135 200,112 160,112 Z" fill="#2B2321"/>
-                    <path d="M 205,240 C 225,280 235,330 240,380 C 220,380 210,320 205,280 Z" fill="#1C1817"/>
-                </svg>
-            </div>
-        </div>
+        <h1 class="hero-title">Guadalupe <span>Cajaraville</span></h1>
+        <p class="hero-desc">
+            Soy estudiante de último año en el Instituto Cristo Obrero[cite: 2]. Durante las Actividades Vinculadas al Futuro, desarrollé compromiso, capacidad de comunicación, trabajo en equipo y una rápida adaptación para aprender conceptos y herramientas nuevas[cite: 2].
+        </p>
     </section>
 
     <!-- EXPERIENCES / PROJECTS SECTION -->
@@ -521,7 +434,7 @@
                 <div class="card-body">
                     <span class="card-year">2025</span>
                     <h3 class="card-title">Facultad de Ciencias Exactas y Naturales UBA - Semana de la Biología</h3>
-                    <p class="card-desc">Exploración del campo de la biología y temas de ciencias naturales (como la extracción de ADN de una banana), ampliando mi interés por la investigación científica.</p>
+                    <p class="card-desc">Exploración del campo de la biología y temas de ciencias naturales (como la extracción de ADN de una banana), ampliando mi interés por la investigación científica[cite: 2].</p>
                     <span class="card-badge"><i class="fa-solid fa-flask"></i> Ciencias Naturales</span>
                 </div>
             </div>
@@ -540,7 +453,7 @@
                 <div class="card-body">
                     <span class="card-year">2025</span>
                     <h3 class="card-title">Curso de Educación Financiera - Junior Achievement Argentina</h3>
-                    <p class="card-desc">Aprendizaje de conceptos básicos de educación financiera personal, gestión de dinero, presupuestos y toma de decisiones en base a ingresos y gastos.</p>
+                    <p class="card-desc">Aprendizaje de conceptos básicos de educación financiera personal, gestión de dinero, presupuestos y toma de decisiones en base a ingresos y gastos[cite: 2].</p>
                     <span class="card-badge"><i class="fa-solid fa-certificate"></i> Certificado Acreditado</span>
                 </div>
             </div>
@@ -559,7 +472,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Taller de Educación Financiera - Banco Ciudad</h3>
-                    <p class="card-desc">Capacitación focalizada en el funcionamiento de billeteras virtuales, resolución de trámites bancarios esenciales y pautas para evitar estafas virtuales.</p>
+                    <p class="card-desc">Capacitación focalizada en el funcionamiento de billeteras virtuales, resolución de trámites bancarios esenciales y pautas para evitar estafas virtuales[cite: 3].</p>
                     <span class="card-badge"><i class="fa-solid fa-wallet"></i> Billeteras Virtuales</span>
                 </div>
             </div>
@@ -578,7 +491,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">CBC Universidad de Buenos Aires - UBA</h3>
-                    <p class="card-desc">Charla de orientación con una licenciada en psicología sobre la estructura universitaria, métodos de estudio autónomos, inscripciones e historia de la UBA.</p>
+                    <p class="card-desc">Charla de orientación con una licenciada en psicología sobre la estructura universitaria, métodos de estudio autónomos, inscripciones e historia de la UBA[cite: 3].</p>
                     <span class="card-badge"><i class="fa-solid fa-university"></i> Orientación Universitaria</span>
                 </div>
             </div>
@@ -597,7 +510,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">FCEN UBA - Semana de las Ciencias de la Tierra</h3>
-                    <p class="card-desc">Jornadas de divulgación científica con talleres interactivos, charlas con investigadores y experimentos sobre geología, ciencias de la atmósfera y oceanografía.</p>
+                    <p class="card-desc">Jornadas de divulgación científica con talleres interactivos, charlas con investigadores y experimentos sobre geología, ciencias de la atmósfera y oceanografía[cite: 3].</p>
                     <span class="card-badge"><i class="fa-solid fa-earth-americas"></i> Geología y Oceanografía</span>
                 </div>
             </div>
@@ -615,7 +528,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Taller de Técnicas de Estudios - UCA</h3>
-                    <p class="card-desc">Capacitación sobre metodologías de estudio avanzadas, integración de Inteligencia Artificial, consulta de fuentes confiables y planificación de horarios y exámenes.</p>
+                    <p class="card-desc">Capacitación sobre metodologías de estudio avanzadas, integración de Inteligencia Artificial, consulta de fuentes confiables y planificación de horarios y exámenes[cite: 3, 4].</p>
                     <span class="card-badge"><i class="fa-solid fa-brain"></i> Métodos e IA</span>
                 </div>
             </div>
@@ -625,7 +538,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Curso Planifico mi Futuro - Junior Achievement</h3>
-                    <p class="card-desc">Formación práctica para la creación de redes profesionales en LinkedIn, elaboración de currículum vitae, desarrollo en entrevistas laborales y análisis de profesiones clave.</p>
+                    <p class="card-desc">Formación práctica para la creación de redes profesionales en LinkedIn, elaboración de currículum vitae, desarrollo en entrevistas laborales y análisis de profesiones clave[cite: 4].</p>
                     <span class="card-badge"><i class="fa-solid fa-file-invoice"></i> Armado de CV y LinkedIn</span>
                 </div>
             </div>
@@ -635,7 +548,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Curso Domino mis Cuentas - Junior Achievement</h3>
-                    <p class="card-desc">Desarrollo de competencias para tomar decisiones informadas, consolidar hábitos financieros saludables y administrar cuentas de forma responsable.</p>
+                    <p class="card-desc">Desarrollo de competencias para tomar decisiones informadas, consolidar hábitos financieros saludables y administrar cuentas de forma responsable[cite: 4].</p>
                     <span class="card-badge"><i class="fa-solid fa-coins"></i> Hábitos Financieros</span>
                 </div>
             </div>
@@ -645,7 +558,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Corporación Sur CABA</h3>
-                    <p class="card-desc">Taller sobre ecología urbana, técnicas para prevención de plagas en plantas, construcción de composteras y pautas para el mantenimiento de huertas.</p>
+                    <p class="card-desc">Taller sobre ecología urbana, técnicas para prevención de plagas en plantas, construcción de composteras y pautas para el mantenimiento de huertas[cite: 4].</p>
                     <span class="card-badge"><i class="fa-solid fa-leaf"></i> Ecología y Huerta</span>
                 </div>
             </div>
@@ -655,7 +568,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Jardín San José Poupponiere - Huerta Orgánica</h3>
-                    <p class="card-desc">Armado de composteras, plantación de vegetación autóctona y hortalizas, acondicionamiento del espacio verde y coordinación en equipo respetando horarios y organización.</p>
+                    <p class="card-desc">Armado de composteras, plantación de vegetación autóctona y hortalizas, acondicionamiento del espacio verde y coordinación en equipo respetando horarios y organización[cite: 4].</p>
                     <span class="card-badge"><i class="fa-solid fa-seedling"></i> Impacto Sustentable</span>
                 </div>
             </div>
@@ -673,7 +586,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Prácticas Inmersivas - Centro de Simulación CABA</h3>
-                    <p class="card-desc">Aplicación práctica de lógica de programación en brazos robóticos, uso de instrumental tecnológico de vanguardia y comprensión del funcionamiento técnico interno.</p>
+                    <p class="card-desc">Aplicación práctica de lógica de programación en brazos robóticos, uso de instrumental tecnológico de vanguardia y comprensión del funcionamiento técnico interno[cite: 5].</p>
                     <span class="card-badge"><i class="fa-solid fa-robot"></i> Programación y Robótica</span>
                 </div>
             </div>
@@ -691,7 +604,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Visita guiada del Teatro Colon</h3>
-                    <p class="card-desc">Recorrido por las instalaciones del Teatro Colón para conocer su trayectoria histórica, áreas de producción musical, confección de vestuario y armado escenográfico.</p>
+                    <p class="card-desc">Recorrido por las instalaciones del Teatro Colón para conocer su trayectoria histórica, áreas de producción musical, confección de vestuario y armado escenográfico[cite: 5].</p>
                     <span class="card-badge"><i class="fa-solid fa-masks-theater"></i> Historia y Producción</span>
                 </div>
             </div>
@@ -701,7 +614,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Visita Colón Fábrica</h3>
-                    <p class="card-desc">Exploración de los depósitos y talleres donde se conservan y elaboran las escenografías, vestuarios y lienzos utilizados en las puestas en escena.</p>
+                    <p class="card-desc">Exploración de los depósitos y talleres donde se conservan y elaboran las escenografías, vestuarios y lienzos utilizados en las puestas en escena[cite: 5].</p>
                     <span class="card-badge"><i class="fa-solid fa-warehouse"></i> Escenografía y Arte</span>
                 </div>
             </div>
@@ -711,7 +624,7 @@
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Espectáculo Teatro Colón - "Principio de Éxtasis"</h3>
-                    <p class="card-desc">Asistencia al ensayo general de la puesta escénica inspirada en la obra "El Aleph" del escritor Jorge Luis Borges en el Teatro Colón.</p>
+                    <p class="card-desc">Asistencia al ensayo general de la puesta escénica inspirada en la obra "El Aleph" del escritor Jorge Luis Borges en el Teatro Colón[cite: 6].</p>
                     <span class="card-badge"><i class="fa-solid fa-ticket"></i> Función Literaria</span>
                 </div>
             </div>
@@ -729,27 +642,27 @@
             <div class="services-grid">
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-code"></i></div>
-                    <div class="service-text">Programación Básica</div>
+                    <div class="service-text">Programación Básica[cite: 6]</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <div class="service-text">Manejo de Finanzas</div>
+                    <div class="service-text">Manejo de Finanzas[cite: 6]</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-calculator"></i></div>
-                    <div class="service-text">Realizar Presupuestos Personales</div>
+                    <div class="service-text">Realizar Presupuestos Personales[cite: 6]</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
-                    <div class="service-text">Asistencia a Huertas</div>
+                    <div class="service-text">Asistencia a Huertas[cite: 6]</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-file-user"></i></div>
-                    <div class="service-text">Elaboración de CVs Básico</div>
+                    <div class="service-text">Elaboración de CVs Básico[cite: 6]</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-book-open"></i></div>
-                    <div class="service-text">Apoyo Escolar y Técnicas de Estudio</div>
+                    <div class="service-text">Apoyo Escolar y Técnicas de Estudio[cite: 6]</div>
                 </div>
             </div>
         </div>
@@ -763,14 +676,14 @@
                 ¡Gracias por visitar mi portafolio! Estoy siempre abierta a colaborar en iniciativas académicas, proyectos sustentables o nuevas oportunidades. Si te interesa lo que hago o deseas realizar una consulta, ¡no dudes en escribirme!
             </p>
             <p class="contact-invitation">
-                <i class="fa-solid fa-envelope-open-text"></i> Respondas por correo o te conectes vía LinkedIn, será un gusto ponernos en contacto.
+                <i class="fa-solid fa-envelope-open-text"></i> Respondas por correo o te conectes vía LinkedIn, será un gusto ponernos en contacto[cite: 6].
             </p>
             <div class="contact-buttons">
                 <a href="mailto:Guadalupecajaravilleacosta@gmail.com" class="btn-contact btn-email">
-                    <i class="fa-regular fa-envelope"></i> Enviar Mensaje
+                    <i class="fa-regular fa-envelope"></i> Enviar Mensaje[cite: 6]
                 </a>
                 <a href="https://linkedin.com" target="_blank" class="btn-contact btn-linkedin">
-                    <i class="fa-brands fa-linkedin"></i> Conectar en LinkedIn
+                    <i class="fa-brands fa-linkedin"></i> Conectar en LinkedIn[cite: 6]
                 </a>
             </div>
         </div>
@@ -778,7 +691,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Guadalupe Cajaraville — Portafolio Digital Personal. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Guadalupe Cajaraville — Portafolio Digital Personal. Todos los derechos reservados[cite: 2].</p>
     </footer>
 
 </body>
