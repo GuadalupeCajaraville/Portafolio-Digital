@@ -11,19 +11,20 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0f172a',      /* Gris Azulado Oscuro Noche */
-                        cardBg: '#1e293b',      /* Azul Noche Profundo */
-                        cardHeader: '#0b132b',  /* Noche Intenso */
-                        accentBlue: '#2563eb',  /* Azul Vívido */
+                        darkBg: '#0d131d',
+                        cardBg: '#141c2b',
+                        cardHeader: '#0b1019',
+                        accentBlue: '#2563eb',
+                        accentLight: '#38bdf8',
                         accentHover: '#1d4ed8',
-                        borderNavy: '#334155',
+                        borderNavy: '#1e293b',
                         textMain: '#f8fafc',
                         textMuted: '#94a3b8'
                     },
@@ -36,32 +37,39 @@
     </script>
     <style>
         .glass-card {
-            background: #1e293b;
+            background: rgba(20, 28, 43, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -10px rgba(13, 19, 29, 0.8);
         }
     </style>
 </head>
-<body class="bg-darkBg text-textMain font-sans antialiased selection:bg-accentBlue selection:text-white">
+<body class="bg-darkBg text-textMain font-sans antialiased selection:bg-accentBlue selection:text-white min-h-screen flex flex-col">
 
-    <!-- Navegación -->
-    <nav class="fixed top-0 left-0 w-full bg-darkBg/90 backdrop-blur-md shadow-lg z-50 border-b border-white/10">
+    <!-- Navegación Sticky -->
+    <nav class="fixed top-0 left-0 w-full bg-darkBg/95 backdrop-blur-md z-50 border-b border-white/10 shadow-lg">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="#inicio" class="font-bold text-xl text-white tracking-tight flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-accentBlue text-white flex items-center justify-center font-semibold text-sm">GC</span>
-                    Guadalupe Cajaraville
+                <a href="#inicio" class="font-bold text-lg sm:text-xl text-white tracking-tight flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-lg bg-accentBlue text-white flex items-center justify-center font-bold text-sm shadow-md shadow-accentBlue/20">GC</span>
+                    <span>Guadalupe Cajaraville</span>
                 </a>
                 
                 <!-- Menú Desktop -->
                 <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-textMuted">
-                    <a href="#sobre-mi" class="hover:text-accentBlue transition-colors">Sobre mí</a>
-                    <a href="#proyectos" class="hover:text-accentBlue transition-colors">Proyectos y Experiencias</a>
-                    <a href="#servicios" class="hover:text-accentBlue transition-colors">Servicios</a>
-                    <a href="#contacto" class="hover:text-accentBlue transition-colors">Contacto</a>
+                    <a href="#sobre-mi" class="hover:text-accentLight transition-colors">Sobre mí</a>
+                    <a href="#proyectos" class="hover:text-accentLight transition-colors">Proyectos</a>
+                    <a href="#habilidades" class="hover:text-accentLight transition-colors">Habilidades</a>
+                    <a href="#servicios" class="hover:text-accentLight transition-colors">Servicios</a>
+                    <a href="#contacto" class="hover:text-accentLight transition-colors">Contacto</a>
                 </div>
 
                 <!-- Botón Menú Mobile -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-textMuted hover:bg-cardBg focus:outline-none">
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-textMuted hover:bg-cardBg focus:outline-none" aria-label="Abrir menú">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
@@ -69,36 +77,46 @@
 
         <!-- Menú Desplegable Mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-white/10 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
-            <a href="#sobre-mi" class="block py-2 text-textMuted hover:text-accentBlue">Sobre mí</a>
-            <a href="#proyectos" class="block py-2 text-textMuted hover:text-accentBlue">Proyectos y Experiencias</a>
-            <a href="#servicios" class="block py-2 text-textMuted hover:text-accentBlue">Servicios</a>
-            <a href="#contacto" class="block py-2 text-textMuted hover:text-accentBlue">Contacto</a>
+            <a href="#sobre-mi" class="block py-2 text-textMuted hover:text-accentLight">Sobre mí</a>
+            <a href="#proyectos" class="block py-2 text-textMuted hover:text-accentLight">Proyectos</a>
+            <a href="#habilidades" class="block py-2 text-textMuted hover:text-accentLight">Habilidades</a>
+            <a href="#servicios" class="block py-2 text-textMuted hover:text-accentLight">Servicios</a>
+            <a href="#contacto" class="block py-2 text-textMuted hover:text-accentLight">Contacto</a>
         </div>
     </nav>
 
     <!-- Header / Hero Section -->
-    <section id="inicio" class="pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-cardHeader to-darkBg">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="inicio" class="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-cardHeader via-darkBg to-darkBg relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 
-                <!-- Foto de Perfil con Canvas/SVG fallback e imagen directa de Guadalupe Cajaraville -->
+                <!-- Foto de Perfil -->
                 <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-accentBlue to-indigo-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-                    <div class="relative w-52 h-64 sm:w-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-cardBg flex-shrink-0">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-accentBlue to-accentLight rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
+                    <div class="relative w-52 h-64 sm:w-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-cardBg flex-shrink-0">
                         <img id="profile-img" 
-                             src="IMG_20261027_144550111~2_2.jpg" 
+                             src="IMG_20261027_144550111~2_3.jpg" 
                              alt="Guadalupe Cajaraville" 
                              class="w-full h-full object-cover object-top"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600';">
+                             onerror="this.onerror=null; this.src='IMG_20261027_144550111~2_2.jpg'; this.onerror=function(){ document.getElementById('profile-fallback').classList.remove('hidden'); this.style.display='none'; }">
+                        
+                        <!-- Fallback SVG estilizado si la imagen local no carga en navegadores de prueba -->
+                        <div id="profile-fallback" class="hidden w-full h-full bg-cardBg flex flex-col items-center justify-center text-center p-4">
+                            <div class="w-20 h-20 rounded-full bg-accentBlue/20 text-accentLight flex items-center justify-center text-3xl mb-3">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <span class="text-white font-bold text-base">Guadalupe Cajaraville</span>
+                            <span class="text-textMuted text-xs mt-1">Estudiante de secundario</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Info Principal -->
                 <div class="text-center md:text-left space-y-4">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accentBlue/20 text-accentBlue text-xs font-semibold uppercase tracking-wider border border-accentBlue/30">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accentBlue/20 text-accentLight text-xs font-semibold uppercase tracking-wider border border-accentBlue/30">
                         <i class="fa-solid fa-graduation-cap"></i> Estudiante de secundario
                     </div>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
                         Guadalupe Cajaraville
                     </h1>
                     <p class="text-textMuted text-base sm:text-lg leading-relaxed max-w-2xl" id="sobre-mi">
@@ -109,7 +127,7 @@
                             <i class="fa-solid fa-envelope"></i> Contactar
                         </a>
                         <a href="#proyectos" class="px-6 py-3 bg-cardBg hover:bg-cardHeader text-textMain font-medium rounded-xl shadow-sm border border-white/10 transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-briefcase"></i> Ver Trayectoria
+                            <i class="fa-solid fa-briefcase"></i> Ver Proyectos
                         </a>
                     </div>
                 </div>
@@ -120,9 +138,9 @@
     <!-- Sección de Proyectos y Experiencias -->
     <section id="proyectos" class="py-16 bg-darkBg border-t border-white/5">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-white">Proyectos</h2>
-                <p class="mt-2 text-textMuted">Experiencias, capacitaciones, actividades e instituciones recorridas.</p>
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Proyectos</h2>
+                <p class="mt-2 text-textMuted">Trayectoria académica, talleres, visitas pedagógicas y cursos realizados.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -130,16 +148,18 @@
                 <!-- 1. Facultad de Ciencias Exactas y Naturales UBA - Semana de la Biología -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800" alt="Semana de la Biología UBA" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2025</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2025</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Facultad de Ciencias Exactas y Naturales UBA- Semana de la Biología (2025)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
+                            <p class="text-textMuted text-sm leading-relaxed mb-3">
                                 Esta experiencia me permitió conocer más sobre el campo de la biología, explorar distintos temas relacionados con las ciencias naturales (Como por ejemplo: Extraer ADN de una banana) y ampliar mi interés por la investigación científica.
                             </p>
-                            <p class="text-accentBlue font-medium text-xs mt-3">¿Quien es Lucy?</p>
+                            <span class="inline-block bg-accentBlue/20 text-accentLight font-semibold text-xs px-3 py-1 rounded-full border border-accentBlue/30">
+                                ¿Quien es Lucy?
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -147,9 +167,9 @@
                 <!-- 2. Curso de Educación Financiera - Junior Achievement -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800" alt="Educación Financiera" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2025</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2025</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Curso de Educación Financiera - Junior Archievement Argentina (2025)</h3>
@@ -166,9 +186,9 @@
                 <!-- 3. Banco Ciudad - Taller de Educación Financiera -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="Banco Ciudad" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Banco Ciudad - Taller de Educación Financiera (2026)</h3>
@@ -182,9 +202,9 @@
                 <!-- 4. CBC Universidad de Buenos Aires -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" alt="CBC UBA" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">CBC Universidad de Buenos Aires - UBA (2026)</h3>
@@ -198,9 +218,9 @@
                 <!-- 5. Semana de las Ciencias de la Tierra UBA -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=800" alt="Ciencias de la Tierra" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Facultad de Ciencias Exactas y Naturales UBA - Semana de las Ciencias de la Tierra (2026)</h3>
@@ -214,9 +234,9 @@
                 <!-- 6. Taller de Técnicas de Estudios UCA -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" alt="Taller UCA" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Taller de Técnicas de Estudios para Universitarios - Universidad Católica Argentina UCA (2026)</h3>
@@ -231,9 +251,9 @@
                 <!-- 7. Curso Planifico mí Futuro -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="Planifico mi Futuro" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Curso Planifico mí Futuro - Junior Archievement Argentina (2026)</h3>
@@ -250,9 +270,9 @@
                 <!-- 8. Curso Domino mis Cuentas -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=800" alt="Domino mis Cuentas" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Curso Domino mis Cuentas - Junior Archievement Argentina (2026)</h3>
@@ -269,9 +289,9 @@
                 <!-- 9. Corporación Sur CABA -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=800" alt="Corporacion Sur CABA" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Corporación Sur CABA (2026)</h3>
@@ -285,9 +305,9 @@
                 <!-- 10. Jardín San José Poupponiere -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
+                        <div class="h-48 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" alt="Jardin San Jose" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Jardín San José Poupponiere - Huerta Orgánica (2026)</h3>
@@ -301,36 +321,28 @@
                 <!-- 11. Prácticas Inmersivas -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between md:col-span-2">
                     <div>
-                        <div class="h-56 overflow-hidden relative">
+                        <div class="h-56 overflow-hidden relative bg-cardHeader">
                             <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200" alt="Centro de Simulación CABA" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Prácticas Inmersivas - Centro de Simulación de la Ciudad Autónoma de Buenos Aires (2026)</h3>
                             <p class="text-textMuted text-sm leading-relaxed mb-4">
                                 Pusimos en práctica conceptos sobre programación inicial en un robot, trabajamos en equipos, aprendimos a utilizar los materiales tecnológicos que nos proporcionaban y aprendimos el detrás de los objetos tecnológicos.
                             </p>
-                            <div class="flex flex-wrap gap-2 text-xs font-semibold text-textMuted">
-                                <span class="bg-white/10 px-2.5 py-1 rounded">EPSON</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">ROBÓTICA</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">TECNOLOGÍA</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">DINÁMICA</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">TÉCNICA</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">FORMACIÓN</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">PROFESIONAL</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">ZONA NEU</span>
-                                <span class="bg-white/10 px-2.5 py-1 rounded">SIMI</span>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 12. Visita Teatro Colón (IMAGEN REAL DE TEATRO COLÓN ARGENTINA) -->
+                <!-- 12. Visita Teatro Colón (IMAGEN REAL DEL TEATRO COLÓN EN BUENOS AIRES) -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teatro_Colon_de_Buenos_Aires_-_SALA.jpg/1024px-Teatro_Colon_de_Buenos_Aires_-_SALA.jpg" alt="Teatro Colón Buenos Aires Argentina" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                        <div class="h-52 overflow-hidden relative bg-cardHeader">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teatro_Colon_de_Buenos_Aires_-_SALA.jpg/1024px-Teatro_Colon_de_Buenos_Aires_-_SALA.jpg" 
+                                 alt="Teatro Colón de Buenos Aires Argentina" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800';">
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Visita Teatro Colón (2026)</h3>
@@ -341,12 +353,15 @@
                     </div>
                 </div>
 
-                <!-- 13. Visita Colón Fábrica (IMAGEN REAL DE COLÓN FÁBRICA LA BOCA) -->
+                <!-- 13. Visita Colón Fábrica (IMAGEN REAL DE COLÓN FÁBRICA LA BOCA, ARGENTINA) -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Colon_fabrica_01.jpg/1024px-Colon_fabrica_01.jpg" alt="Colón Fábrica La Boca Buenos Aires" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&q=80&w=800';">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                        <div class="h-52 overflow-hidden relative bg-cardHeader">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Colon_fabrica_01.jpg/1024px-Colon_fabrica_01.jpg" 
+                                 alt="Colón Fábrica La Boca Buenos Aires Argentina" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&q=80&w=800';">
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Visita Colon Fábrica (2026)</h3>
@@ -360,9 +375,12 @@
                 <!-- 14. Espectáculo Teatro Colón -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between md:col-span-2">
                     <div>
-                        <div class="h-48 overflow-hidden relative">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Teatro_Colon_Interiores.jpg/1024px-Teatro_Colon_Interiores.jpg" alt="Espectáculo Teatro Colón" class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-semibold px-3 py-1 rounded-full shadow">2026</span>
+                        <div class="h-52 overflow-hidden relative bg-cardHeader">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Teatro_Colon_Interiores.jpg/1024px-Teatro_Colon_Interiores.jpg" 
+                                 alt="Espectáculo Teatro Colón" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=1200';">
+                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Espectáculo Teatro Colón (2026)</h3>
@@ -373,7 +391,7 @@
                             <!-- Ticket -->
                             <div class="bg-cardHeader p-4 rounded-xl border border-white/10 text-xs font-mono text-textMuted space-y-1">
                                 <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
-                                    <i class="fa-solid fa-ticket text-accentBlue"></i> TEATRO COLÓN
+                                    <i class="fa-solid fa-ticket text-accentLight"></i> TEATRO COLÓN
                                 </div>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     <p><span class="text-white font-semibold">Ingreso:</span> Viamonte 1142</p>
@@ -392,90 +410,109 @@
         </div>
     </section>
 
-    <!-- Sección Servicios -->
-    <section id="servicios" class="py-16 bg-cardHeader border-t border-white/5">
+    <!-- Sección Habilidades y Competencias -->
+    <section id="habilidades" class="py-16 bg-cardHeader border-t border-white/5">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-white">Servicios</h2>
-                <p class="mt-2 text-textMuted">Habilidades y servicios personales.</p>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Habilidades y Competencias</h2>
+                <p class="mt-2 text-textMuted">Áreas de conocimiento, etiquetas técnicas y formación adquirida.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2.5 rounded-xl bg-accentBlue text-white font-semibold text-sm shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-code"></i> Programación Básica.
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-accentBlue/20 text-accentLight border border-accentBlue/40 font-semibold text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line"></i> Manejo de finanzas.
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    ROBÓTICA
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    TECNOLOGÍA
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    DINÁMICA
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    TÉCNICA
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    FORMACIÓN
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    PROFESIONAL
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    NEUROSIMULACIÓN
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    EPSON
+                </span>
+                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
+                    ZTECNOLOGÍA
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="py-16 bg-darkBg border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Servicios</h2>
+                <p class="mt-2 text-textMuted">Asistencia y colaboraciones prácticas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Servicio 1 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex items-start gap-4 hover:border-accentBlue/50 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentBlue flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-solid fa-code"></i>
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-calculator"></i>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Programación Básica.</h3>
-                    </div>
+                    <h3 class="font-bold text-white text-base">Realizar presupuestos personales.</h3>
                 </div>
 
                 <!-- Servicio 2 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex items-start gap-4 hover:border-accentBlue/50 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentBlue flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-solid fa-wallet"></i>
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-seedling"></i>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Manejo de finanzas.</h3>
-                    </div>
+                    <h3 class="font-bold text-white text-base">Asistencia a huertas.</h3>
                 </div>
 
                 <!-- Servicio 3 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex items-start gap-4 hover:border-accentBlue/50 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentBlue flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-solid fa-calculator"></i>
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-file-lines"></i>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Realizar presupuestos personales.</h3>
-                    </div>
+                    <h3 class="font-bold text-white text-base">Elaboración y formato de currículums básicos.</h3>
                 </div>
 
                 <!-- Servicio 4 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex items-start gap-4 hover:border-accentBlue/50 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentBlue flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Asistencia a huertas.</h3>
-                    </div>
-                </div>
-
-                <!-- Servicio 5 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex items-start gap-4 hover:border-accentBlue/50 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentBlue flex items-center justify-center text-xl flex-shrink-0">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Elaboración y formato de currículums básicos.</h3>
-                    </div>
-                </div>
-
-                <!-- Servicio 6 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex items-start gap-4 hover:border-accentBlue/50 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentBlue flex items-center justify-center text-xl flex-shrink-0">
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-book-open"></i>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Apoyo escolar y técnicas de estudios.</h3>
-                    </div>
+                    <h3 class="font-bold text-white text-base">Apoyo escolar y técnicas de estudios.</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sección Contacto -->
-    <section id="contacto" class="py-16 bg-darkBg border-t border-white/5">
+    <section id="contacto" class="py-16 bg-cardHeader border-t border-white/5">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-cardHeader to-cardBg rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-white/10 relative overflow-hidden text-center space-y-6">
-                <h2 class="text-3xl font-bold tracking-tight">Contacto</h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                    <a href="mailto:Guadalupecajaravilleacosta@gmail.com" class="w-full sm:w-auto px-6 py-3.5 bg-accentBlue hover:bg-accentHover text-white rounded-xl font-medium transition-colors flex items-center justify-center gap-3 shadow-lg shadow-accentBlue/20">
+            <div class="bg-gradient-to-br from-cardBg to-darkBg rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-white/10 relative overflow-hidden text-center space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Contacto</h2>
+                <p class="text-textMuted max-w-lg mx-auto text-sm sm:text-base">Si quieres comunicarte o conocer más sobre mis actividades, puedes escribirme a través de los siguientes canales:</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
+                    <a href="mailto:Guadalupecajaravilleacosta@gmail.com" class="w-full sm:w-auto px-6 py-3.5 bg-accentBlue hover:bg-accentHover text-white rounded-xl font-medium transition-colors flex items-center justify-center gap-3 shadow-lg shadow-accentBlue/20 text-sm">
                         <i class="fa-solid fa-envelope"></i>
                         Guadalupecajaravilleacosta@gmail.com
                     </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-medium border border-white/10 transition-colors flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-linkedin text-xl"></i>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-medium border border-white/10 transition-colors flex items-center justify-center gap-3 text-sm">
+                        <i class="fa-brands fa-linkedin text-lg"></i>
                         Perfil Guadalupe Cajaraville
                     </a>
                 </div>
@@ -484,9 +521,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-cardHeader text-textMuted border-t border-white/5 text-center text-xs">
+    <footer class="py-8 bg-darkBg text-textMuted border-t border-white/5 text-center text-xs mt-auto">
         <div class="max-w-6xl mx-auto px-4">
-            <p>© 2026 Guadalupe Cajaraville. Todos los derechos reservados.</p>
+            <p>© 2026 Guadalupe Cajaraville. Portafolio Digital.</p>
         </div>
     </footer>
 
