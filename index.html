@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Digital | Guadalupe Cajaraville</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,13 +18,12 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0d131d',
-                        cardBg: '#141c2b',
-                        cardHeader: '#0b1019',
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b',
+                        cardHeader: '#0b1329',
                         accentBlue: '#2563eb',
-                        accentLight: '#38bdf8',
+                        accentLight: '#3b82f6',
                         accentHover: '#1d4ed8',
-                        borderNavy: '#1e293b',
                         textMain: '#f8fafc',
                         textMuted: '#94a3b8'
                     },
@@ -37,14 +36,14 @@
     </script>
     <style>
         .glass-card {
-            background: rgba(20, 28, 43, 0.95);
+            background: rgba(30, 41, 59, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
-            border-color: rgba(37, 99, 235, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px -10px rgba(13, 19, 29, 0.8);
+            border-color: rgba(37, 99, 235, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px -10px rgba(15, 23, 42, 0.9);
         }
     </style>
 </head>
@@ -93,17 +92,17 @@
                 <!-- Foto de Perfil -->
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-accentBlue to-accentLight rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-                    <div class="relative w-52 h-64 sm:w-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-cardBg flex-shrink-0">
+                    <div class="relative w-56 h-72 sm:w-64 sm:h-80 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-cardBg flex-shrink-0">
                         <img id="profile-img" 
                              src="IMG_20261027_144550111~2_3.jpg" 
                              alt="Guadalupe Cajaraville" 
                              class="w-full h-full object-cover object-top"
-                             onerror="this.onerror=null; this.src='IMG_20261027_144550111~2_2.jpg'; this.onerror=function(){ document.getElementById('profile-fallback').classList.remove('hidden'); this.style.display='none'; }">
+                             onerror="this.onerror=null; this.src='IMG_20261027_144550111~2.jpg'; this.onerror=function(){ document.getElementById('profile-fallback').classList.remove('hidden'); this.style.display='none'; }">
                         
-                        <!-- Fallback SVG estilizado si la imagen local no carga en navegadores de prueba -->
+                        <!-- Fallback elegante por si el archivo local no está presente -->
                         <div id="profile-fallback" class="hidden w-full h-full bg-cardBg flex flex-col items-center justify-center text-center p-4">
-                            <div class="w-20 h-20 rounded-full bg-accentBlue/20 text-accentLight flex items-center justify-center text-3xl mb-3">
-                                <i class="fa-solid fa-user"></i>
+                            <div class="w-20 h-20 rounded-full bg-accentBlue/20 text-accentLight flex items-center justify-center text-3xl mb-3 border border-accentBlue/40">
+                                <i class="fa-solid fa-user-graduate"></i>
                             </div>
                             <span class="text-white font-bold text-base">Guadalupe Cajaraville</span>
                             <span class="text-textMuted text-xs mt-1">Estudiante de secundario</span>
@@ -140,7 +139,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Proyectos</h2>
-                <p class="mt-2 text-textMuted">Trayectoria académica, talleres, visitas pedagógicas y cursos realizados.</p>
+                <p class="mt-2 text-textMuted">Experiencias académicas, capacitaciones, talleres y visitas de formación.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -149,12 +148,14 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800" alt="Semana de la Biología UBA" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Semana de la Biología UBA" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2025</span>
                         </div>
                         <div class="p-6">
                             <h3 class="text-lg font-bold text-white mb-2">Facultad de Ciencias Exactas y Naturales UBA- Semana de la Biología (2025)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-3">
+                            <p class="text-textMuted text-sm leading-relaxed mb-4">
                                 Esta experiencia me permitió conocer más sobre el campo de la biología, explorar distintos temas relacionados con las ciencias naturales (Como por ejemplo: Extraer ADN de una banana) y ampliar mi interés por la investigación científica.
                             </p>
                             <span class="inline-block bg-accentBlue/20 text-accentLight font-semibold text-xs px-3 py-1 rounded-full border border-accentBlue/30">
@@ -168,7 +169,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800" alt="Educación Financiera" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Educación Financiera" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2025</span>
                         </div>
                         <div class="p-6">
@@ -187,7 +190,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="Banco Ciudad" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Banco Ciudad" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -203,7 +208,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" alt="CBC UBA" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" 
+                                 alt="CBC UBA" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -219,7 +226,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=800" alt="Ciencias de la Tierra" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Ciencias de la Tierra" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -235,7 +244,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" alt="Taller UCA" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Taller UCA" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -248,11 +259,13 @@
                     </div>
                 </div>
 
-                <!-- 7. Curso Planifico mí Futuro -->
+                <!-- 7. Curso Planifico mi Futuro -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="Planifico mi Futuro" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Planifico mi Futuro" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -271,7 +284,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=800" alt="Domino mis Cuentas" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Domino mis Cuentas" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -290,7 +305,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=800" alt="Corporacion Sur CABA" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Corporacion Sur CABA" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -306,7 +323,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" alt="Jardin San Jose" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Jardin San Jose" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -322,7 +341,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between md:col-span-2">
                     <div>
                         <div class="h-56 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200" alt="Centro de Simulación CABA" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200" 
+                                 alt="Centro de Simulación CABA" 
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -330,18 +351,28 @@
                             <p class="text-textMuted text-sm leading-relaxed mb-4">
                                 Pusimos en práctica conceptos sobre programación inicial en un robot, trabajamos en equipos, aprendimos a utilizar los materiales tecnológicos que nos proporcionaban y aprendimos el detrás de los objetos tecnológicos.
                             </p>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">ROBÓTICA</span>
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">TECNOLOGÍA</span>
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">DINÁMICA</span>
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">TÉCNICA</span>
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">FORMACIÓN</span>
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">PROFESIONAL</span>
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">NEU</span>
+                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">SIMI</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 12. Visita Teatro Colón (IMAGEN REAL DEL TEATRO COLÓN EN BUENOS AIRES) -->
+                <!-- 12. Visita Teatro Colón (IMAGEN DEL TEATRO COLÓN DE BUENOS AIRES) -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-52 overflow-hidden relative bg-cardHeader">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Teatro_Colon_de_Buenos_Aires_-_SALA.jpg/1024px-Teatro_Colon_de_Buenos_Aires_-_SALA.jpg" 
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800" 
                                  alt="Teatro Colón de Buenos Aires Argentina" 
                                  class="w-full h-full object-cover"
-                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800';">
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588603611317-0648c6655c45?auto=format&fit=crop&q=80&w=800';">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -353,11 +384,11 @@
                     </div>
                 </div>
 
-                <!-- 13. Visita Colón Fábrica (IMAGEN REAL DE COLÓN FÁBRICA LA BOCA, ARGENTINA) -->
+                <!-- 13. Visita Colón Fábrica -->
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
                     <div>
                         <div class="h-52 overflow-hidden relative bg-cardHeader">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Colon_fabrica_01.jpg/1024px-Colon_fabrica_01.jpg" 
+                            <img src="https://images.unsplash.com/photo-1508997449629-303059a039c0?auto=format&fit=crop&q=80&w=800" 
                                  alt="Colón Fábrica La Boca Buenos Aires Argentina" 
                                  class="w-full h-full object-cover"
                                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&q=80&w=800';">
@@ -376,10 +407,9 @@
                 <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between md:col-span-2">
                     <div>
                         <div class="h-52 overflow-hidden relative bg-cardHeader">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Teatro_Colon_Interiores.jpg/1024px-Teatro_Colon_Interiores.jpg" 
+                            <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=1200" 
                                  alt="Espectáculo Teatro Colón" 
-                                 class="w-full h-full object-cover"
-                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=1200';">
+                                 class="w-full h-full object-cover">
                             <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
                         </div>
                         <div class="p-6">
@@ -388,7 +418,7 @@
                                 → Fuimos a ver el espectáculo "Principio de éxtasis", que está basado en el libro "El Aleph" del autor argentino Jorge Luis Borges.
                             </p>
                             
-                            <!-- Ticket -->
+                            <!-- Ticket / Comprobante -->
                             <div class="bg-cardHeader p-4 rounded-xl border border-white/10 text-xs font-mono text-textMuted space-y-1">
                                 <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
                                     <i class="fa-solid fa-ticket text-accentLight"></i> TEATRO COLÓN
@@ -414,44 +444,28 @@
     <section id="habilidades" class="py-16 bg-cardHeader border-t border-white/5">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Habilidades y Competencias</h2>
-                <p class="mt-2 text-textMuted">Áreas de conocimiento, etiquetas técnicas y formación adquirida.</p>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Habilidades</h2>
+                <p class="mt-2 text-textMuted">Competencias clave desarrolladas.</p>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-3">
-                <span class="px-4 py-2.5 rounded-xl bg-accentBlue text-white font-semibold text-sm shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-code"></i> Programación Básica.
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-accentBlue/20 text-accentLight border border-accentBlue/40 font-semibold text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-chart-line"></i> Manejo de finanzas.
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    ROBÓTICA
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    TECNOLOGÍA
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    DINÁMICA
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    TÉCNICA
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    FORMACIÓN
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    PROFESIONAL
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    NEUROSIMULACIÓN
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    EPSON
-                </span>
-                <span class="px-4 py-2.5 rounded-xl bg-cardBg text-textMain border border-white/10 font-semibold text-sm">
-                    ZTECNOLOGÍA
-                </span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl font-bold border border-accentBlue/30">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-base">Programación Básica.</h3>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl font-bold border border-accentBlue/30">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-base">Manejo de finanzas.</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -461,37 +475,37 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Servicios</h2>
-                <p class="mt-2 text-textMuted">Asistencia y colaboraciones prácticas.</p>
+                <p class="mt-2 text-textMuted">Áreas en las que puedo colaborar y brindar asistencia.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Servicio 1 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
                         <i class="fa-solid fa-calculator"></i>
                     </div>
                     <h3 class="font-bold text-white text-base">Realizar presupuestos personales.</h3>
                 </div>
 
                 <!-- Servicio 2 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
                         <i class="fa-solid fa-seedling"></i>
                     </div>
                     <h3 class="font-bold text-white text-base">Asistencia a huertas.</h3>
                 </div>
 
                 <!-- Servicio 3 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
                         <i class="fa-solid fa-file-lines"></i>
                     </div>
                     <h3 class="font-bold text-white text-base">Elaboración y formato de currículums básicos.</h3>
                 </div>
 
                 <!-- Servicio 4 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col items-start justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4">
+                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
                         <i class="fa-solid fa-book-open"></i>
                     </div>
                     <h3 class="font-bold text-white text-base">Apoyo escolar y técnicas de estudios.</h3>
@@ -505,7 +519,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-br from-cardBg to-darkBg rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-white/10 relative overflow-hidden text-center space-y-6">
                 <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Contacto</h2>
-                <p class="text-textMuted max-w-lg mx-auto text-sm sm:text-base">Si quieres comunicarte o conocer más sobre mis actividades, puedes escribirme a través de los siguientes canales:</p>
+                <p class="text-textMuted max-w-lg mx-auto text-sm sm:text-base">Puedes escribirme a través de los siguientes canales:</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
                     <a href="mailto:Guadalupecajaravilleacosta@gmail.com" class="w-full sm:w-auto px-6 py-3.5 bg-accentBlue hover:bg-accentHover text-white rounded-xl font-medium transition-colors flex items-center justify-center gap-3 shadow-lg shadow-accentBlue/20 text-sm">
                         <i class="fa-solid fa-envelope"></i>
