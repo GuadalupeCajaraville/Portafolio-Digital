@@ -1,560 +1,123 @@
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Digital | Guadalupe Cajaraville</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#0f172a',
-                        cardBg: '#1e293b',
-                        cardHeader: '#0b1329',
-                        accentBlue: '#2563eb',
-                        accentLight: '#3b82f6',
-                        accentHover: '#1d4ed8',
-                        textMain: '#f8fafc',
-                        textMuted: '#94a3b8'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .glass-card {
-            background: rgba(30, 41, 59, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(37, 99, 235, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 14px 35px -10px rgba(15, 23, 42, 0.9);
-        }
-    </style>
-</head>
-<body class="bg-darkBg text-textMain font-sans antialiased selection:bg-accentBlue selection:text-white min-h-screen flex flex-col">
-
-    <!-- Navegación Sticky -->
-    <nav class="fixed top-0 left-0 w-full bg-darkBg/95 backdrop-blur-md z-50 border-b border-white/10 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="#inicio" class="font-bold text-lg sm:text-xl text-white tracking-tight flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-accentBlue text-white flex items-center justify-center font-bold text-sm shadow-md shadow-accentBlue/20">GC</span>
-                    <span>Guadalupe Cajaraville</span>
-                </a>
-                
-                <!-- Menú Desktop -->
-                <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-textMuted">
-                    <a href="#sobre-mi" class="hover:text-accentLight transition-colors">Sobre mí</a>
-                    <a href="#proyectos" class="hover:text-accentLight transition-colors">Proyectos</a>
-                    <a href="#habilidades" class="hover:text-accentLight transition-colors">Habilidades</a>
-                    <a href="#servicios" class="hover:text-accentLight transition-colors">Servicios</a>
-                    <a href="#contacto" class="hover:text-accentLight transition-colors">Contacto</a>
-                </div>
-
-                <!-- Botón Menú Mobile -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-textMuted hover:bg-cardBg focus:outline-none" aria-label="Abrir menú">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Menú Desplegable Mobile -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-white/10 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
-            <a href="#sobre-mi" class="block py-2 text-textMuted hover:text-accentLight">Sobre mí</a>
-            <a href="#proyectos" class="block py-2 text-textMuted hover:text-accentLight">Proyectos</a>
-            <a href="#habilidades" class="block py-2 text-textMuted hover:text-accentLight">Habilidades</a>
-            <a href="#servicios" class="block py-2 text-textMuted hover:text-accentLight">Servicios</a>
-            <a href="#contacto" class="block py-2 text-textMuted hover:text-accentLight">Contacto</a>
-        </div>
-    </nav>
-
-    <!-- Header / Hero Section -->
-    <section id="inicio" class="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-cardHeader via-darkBg to-darkBg relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                
-                <!-- Foto de Perfil -->
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-accentBlue to-accentLight rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-                    <div class="relative w-56 h-72 sm:w-64 sm:h-80 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 bg-cardBg flex-shrink-0">
-                        <img id="profile-img" 
-                             src="IMG_20261027_144550111~2_3.jpg" 
-                             alt="Guadalupe Cajaraville" 
-                             class="w-full h-full object-cover object-top"
-                             onerror="this.onerror=null; this.src='IMG_20261027_144550111~2.jpg'; this.onerror=function(){ document.getElementById('profile-fallback').classList.remove('hidden'); this.style.display='none'; }">
-                        
-                        <!-- Fallback elegante por si el archivo local no está presente -->
-                        <div id="profile-fallback" class="hidden w-full h-full bg-cardBg flex flex-col items-center justify-center text-center p-4">
-                            <div class="w-20 h-20 rounded-full bg-accentBlue/20 text-accentLight flex items-center justify-center text-3xl mb-3 border border-accentBlue/40">
-                                <i class="fa-solid fa-user-graduate"></i>
-                            </div>
-                            <span class="text-white font-bold text-base">Guadalupe Cajaraville</span>
-                            <span class="text-textMuted text-xs mt-1">Estudiante de secundario</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Info Principal -->
-                <div class="text-center md:text-left space-y-4">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accentBlue/20 text-accentLight text-xs font-semibold uppercase tracking-wider border border-accentBlue/30">
-                        <i class="fa-solid fa-graduation-cap"></i> Estudiante de secundario
-                    </div>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                        Guadalupe Cajaraville
-                    </h1>
-                    <p class="text-textMuted text-base sm:text-lg leading-relaxed max-w-2xl" id="sobre-mi">
-                        Mi nombre es Guadalupe Cajaraville, soy estudiante de último año en el Instituto Cristo Obrero. En los dos últimos años, estuve realizando las Actividades Vinculadas al Futuro, donde aprendí a ser responsable, a interactuar eficazmente con las personas, trabajar en equipo y aprender rápidamente conceptos y actividades nuevas.
-                    </p>
-                    <div class="pt-2 flex flex-wrap gap-4 justify-center md:justify-start">
-                        <a href="#contacto" class="px-6 py-3 bg-accentBlue hover:bg-accentHover text-white font-medium rounded-xl shadow-lg shadow-accentBlue/20 transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-envelope"></i> Contactar
-                        </a>
-                        <a href="#proyectos" class="px-6 py-3 bg-cardBg hover:bg-cardHeader text-textMain font-medium rounded-xl shadow-sm border border-white/10 transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-briefcase"></i> Ver Proyectos
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Proyectos y Experiencias -->
-    <section id="proyectos" class="py-16 bg-darkBg border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Proyectos</h2>
-                <p class="mt-2 text-textMuted">Experiencias académicas, capacitaciones, talleres y visitas de formación.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- 1. Facultad de Ciencias Exactas y Naturales UBA - Semana de la Biología -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Semana de la Biología UBA" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2025</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Facultad de Ciencias Exactas y Naturales UBA- Semana de la Biología (2025)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-4">
-                                Esta experiencia me permitió conocer más sobre el campo de la biología, explorar distintos temas relacionados con las ciencias naturales (Como por ejemplo: Extraer ADN de una banana) y ampliar mi interés por la investigación científica.
-                            </p>
-                            <span class="inline-block bg-accentBlue/20 text-accentLight font-semibold text-xs px-3 py-1 rounded-full border border-accentBlue/30">
-                                ¿Quien es Lucy?
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. Curso de Educación Financiera - Junior Achievement -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Educación Financiera" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2025</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Curso de Educación Financiera - Junior Archievement Argentina (2025)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-4">
-                                En este curso virtual aprendí los conceptos básicos de la educación financiera personal, cómo gestionar mi dinero, qué decisiones tomar basándome en mis ingresos y mis gastos, simulaciones de situaciones, cómo hacer y manejar un presupuesto, entre otras cosas.
-                            </p>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-800">
-                                <i class="fa-solid fa-certificate"></i> Certificado
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. Banco Ciudad - Taller de Educación Financiera -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Banco Ciudad" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Banco Ciudad - Taller de Educación Financiera (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
-                                Fue una capacitación por parte del Banco Ciudad, donde se enfocaron en enseñarnos cómo funcionan las billeteras virtuales, como resolver asuntos esenciales relacionados al banco, y cómo evitar estafas.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. CBC Universidad de Buenos Aires -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" 
-                                 alt="CBC UBA" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">CBC Universidad de Buenos Aires - UBA (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
-                                En una de las sedes del CBC, una licenciada en psicología realizó una charla sobre cómo funciona la Universidad de Buenos Aires, como por ejemplo, como inscribirnos, métodos de estudios, como manejarse autónomamente en la universidad, que es el Ciclo Básico Común CBC, breve historia de la universidad, etc.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. Semana de las Ciencias de la Tierra UBA -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Ciencias de la Tierra" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Facultad de Ciencias Exactas y Naturales UBA - Semana de las Ciencias de la Tierra (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
-                                Asistí a las jornadas de divulgación científica organizadas por la Universidad de Buenos Aires. Participé en talleres interactivos, charlas con investigadores y demostraciones en laboratorios sobre geología, ciencias de la atmósfera y oceanografía.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. Taller de Técnicas de Estudios UCA -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Taller UCA" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Taller de Técnicas de Estudios para Universitarios - Universidad Católica Argentina UCA (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-3">
-                                En este taller tuve la oportunidad de capacitarme sobre distintos métodos de estudios, uso de la Inteligencia Artificial, conocer y utilizar diferentes fuentes de información, y cómo organizarse en lo que respecta los horarios, exámenes y estudios.
-                            </p>
-                            <span class="inline-block bg-white/10 text-white font-bold text-xs px-2.5 py-1 rounded">UCA</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. Curso Planifico mi Futuro -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Planifico mi Futuro" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Curso Planifico mí Futuro - Junior Archievement Argentina (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-4">
-                                En este curso virtual desarrolle la capacidad de hacer contactos profesionales a través de portales virtuales (Por ejemplo Linkedin), a armar un curriculum vitae, cómo reaccionar en una entrevista laboral y a conocer carreras, oportunidades, tendencias y profesiones claves
-                            </p>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-800">
-                                <i class="fa-solid fa-certificate"></i> Certificado
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. Curso Domino mis Cuentas -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Domino mis Cuentas" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Curso Domino mis Cuentas - Junior Archievement Argentina (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-4">
-                                Curso virtual en el cual desarrolle habilidades para tomar decisiones informadas sobre mis cuentas, hábitos financieros saludables y manejo de dinero de manera responsable.
-                            </p>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-800">
-                                <i class="fa-solid fa-certificate"></i> Certificado
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 9. Corporación Sur CABA -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Corporacion Sur CABA" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Corporación Sur CABA (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
-                                Taller donde nos enseñaban conceptos indispensables sobre ecología y sobre huerta, para luego aplicarlos en las prácticas. Entre esos conceptos, estaban los tips para evitar plagas en las plantas, como armar una compostera, cómo organizarnos entre los grupos y cómo mantener la huerta.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 10. Jardín San José Poupponiere -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Jardin San Jose" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Jardín San José Poupponiere - Huerta Orgánica (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
-                                Armamos la compostera, nos organizamos con los grupos para traer materiales, plantamos plantas autóctonas y algunos vegetales, decoramos el espacio que utilizamos, aprendimos las importancia de llegar a horario y a organizar el espacio que utilizamos.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 11. Prácticas Inmersivas -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between md:col-span-2">
-                    <div>
-                        <div class="h-56 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200" 
-                                 alt="Centro de Simulación CABA" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Prácticas Inmersivas - Centro de Simulación de la Ciudad Autónoma de Buenos Aires (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-4">
-                                Pusimos en práctica conceptos sobre programación inicial en un robot, trabajamos en equipos, aprendimos a utilizar los materiales tecnológicos que nos proporcionaban y aprendimos el detrás de los objetos tecnológicos.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">ROBÓTICA</span>
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">TECNOLOGÍA</span>
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">DINÁMICA</span>
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">TÉCNICA</span>
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">FORMACIÓN</span>
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">PROFESIONAL</span>
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">NEU</span>
-                                <span class="text-xs bg-accentBlue/10 text-accentLight px-2.5 py-1 rounded border border-accentBlue/20 font-mono">SIMI</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 12. Visita Teatro Colón (IMAGEN DEL TEATRO COLÓN DE BUENOS AIRES) -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-52 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Teatro Colón de Buenos Aires Argentina" 
-                                 class="w-full h-full object-cover"
-                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588603611317-0648c6655c45?auto=format&fit=crop&q=80&w=800';">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Visita Teatro Colón (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
-                                En esta visita al Teatro Colón nos contaron la historia del lugar, nos dieron un recorrido y nos enseñaron todo el trabajo que se hace en las obras que presentan y su trabajo previo al estreno, desde el vestuario, la música, la escenografía, etc.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 13. Visita Colón Fábrica -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-52 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1508997449629-303059a039c0?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Colón Fábrica La Boca Buenos Aires Argentina" 
-                                 class="w-full h-full object-cover"
-                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&q=80&w=800';">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Visita Colon Fábrica (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed">
-                                En esta oportunidad pudimos ver el almacén que contiene algunos vestuarios, objetos y lienzos de fondo que utilizan para las presentaciones en el teatro, también nos hablaron del trabajo que lleva montar una obra.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 14. Espectáculo Teatro Colón -->
-                <div class="glass-card rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between md:col-span-2">
-                    <div>
-                        <div class="h-52 overflow-hidden relative bg-cardHeader">
-                            <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=1200" 
-                                 alt="Espectáculo Teatro Colón" 
-                                 class="w-full h-full object-cover">
-                            <span class="absolute top-3 right-3 bg-accentBlue text-white text-xs font-bold px-3 py-1 rounded-full shadow">2026</span>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-white mb-2">Espectáculo Teatro Colón (2026)</h3>
-                            <p class="text-textMuted text-sm leading-relaxed mb-4">
-                                → Fuimos a ver el espectáculo "Principio de éxtasis", que está basado en el libro "El Aleph" del autor argentino Jorge Luis Borges.
-                            </p>
-                            
-                            <!-- Ticket / Comprobante -->
-                            <div class="bg-cardHeader p-4 rounded-xl border border-white/10 text-xs font-mono text-textMuted space-y-1">
-                                <div class="font-bold text-white text-sm mb-1 flex items-center gap-2">
-                                    <i class="fa-solid fa-ticket text-accentLight"></i> TEATRO COLÓN
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                    <p><span class="text-white font-semibold">Ingreso:</span> Viamonte 1142</p>
-                                    <p><span class="text-white font-semibold">Fecha:</span> 09.09.2026 - 15:00 hs</p>
-                                    <p><span class="text-white font-semibold">O:</span> 20065532 | <span class="text-white font-semibold">T:</span> 17161255 #1</p>
-                                    <p><span class="text-white font-semibold">Función:</span> Ensayo General - Principio de éxtasis</p>
-                                    <p><span class="text-white font-semibold">Ubicación:</span> Cazuela 1er Fila Centro - Sin numerar</p>
-                                    <p><span class="text-white font-semibold">Entrada:</span> Entrada General ($0 / Efectivo $0)</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Habilidades y Competencias -->
-    <section id="habilidades" class="py-16 bg-cardHeader border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Habilidades</h2>
-                <p class="mt-2 text-textMuted">Competencias clave desarrolladas.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl font-bold border border-accentBlue/30">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Programación Básica.</h3>
-                    </div>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl font-bold border border-accentBlue/30">
-                        <i class="fa-solid fa-wallet"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white text-base">Manejo de finanzas.</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Servicios -->
-    <section id="servicios" class="py-16 bg-darkBg border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Servicios</h2>
-                <p class="mt-2 text-textMuted">Áreas en las que puedo colaborar y brindar asistencia.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Servicio 1 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
-                        <i class="fa-solid fa-calculator"></i>
-                    </div>
-                    <h3 class="font-bold text-white text-base">Realizar presupuestos personales.</h3>
-                </div>
-
-                <!-- Servicio 2 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <h3 class="font-bold text-white text-base">Asistencia a huertas.</h3>
-                </div>
-
-                <!-- Servicio 3 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <h3 class="font-bold text-white text-base">Elaboración y formato de currículums básicos.</h3>
-                </div>
-
-                <!-- Servicio 4 -->
-                <div class="glass-card p-6 rounded-2xl shadow-md border border-white/10 flex flex-col justify-between">
-                    <div class="w-12 h-12 rounded-xl bg-accentBlue/20 text-accentLight flex items-center justify-center text-xl mb-4 border border-accentBlue/30">
-                        <i class="fa-solid fa-book-open"></i>
-                    </div>
-                    <h3 class="font-bold text-white text-base">Apoyo escolar y técnicas de estudios.</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Contacto -->
-    <section id="contacto" class="py-16 bg-cardHeader border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-cardBg to-darkBg rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-white/10 relative overflow-hidden text-center space-y-6">
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Contacto</h2>
-                <p class="text-textMuted max-w-lg mx-auto text-sm sm:text-base">Puedes escribirme a través de los siguientes canales:</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
-                    <a href="mailto:Guadalupecajaravilleacosta@gmail.com" class="w-full sm:w-auto px-6 py-3.5 bg-accentBlue hover:bg-accentHover text-white rounded-xl font-medium transition-colors flex items-center justify-center gap-3 shadow-lg shadow-accentBlue/20 text-sm">
-                        <i class="fa-solid fa-envelope"></i>
-                        Guadalupecajaravilleacosta@gmail.com
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-xl font-medium border border-white/10 transition-colors flex items-center justify-center gap-3 text-sm">
-                        <i class="fa-brands fa-linkedin text-lg"></i>
-                        Perfil Guadalupe Cajaraville
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-darkBg text-textMuted border-t border-white/5 text-center text-xs mt-auto">
-        <div class="max-w-6xl mx-auto px-4">
-            <p>© 2026 Guadalupe Cajaraville. Portafolio Digital.</p>
-        </div>
-    </footer>
-
-    <!-- Script del Menú Mobile -->
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-    </script>
-</body>
-</html>
+:root {
+  --olive: #737b50;
+  --olive-dark: #454c31;
+  --olive-soft: #e9ebdf;
+  --ink: #252720;
+  --muted: #74766e;
+  --line: #dedfd7;
+  --paper: #f8f8f5;
+  --white: #fff;
+  --font-body: "DM Sans", sans-serif;
+  --font-display: "Manrope", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); line-height: 1.65; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.site-header { height: 82px; display: flex; align-items: center; justify-content: space-between; padding: 0 7.2%; border-bottom: 1px solid rgba(60,65,48,.12); background: rgba(248,248,245,.94); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
+.wordmark { font: 800 1.6rem var(--font-display); letter-spacing: -.1em; }
+.wordmark span { color: var(--olive); }
+nav { display: flex; gap: clamp(18px,3vw,42px); align-items: center; font-size: .84rem; font-weight: 600; }
+nav a { transition: color .2s ease; }
+nav a:hover, .site-footer a:hover { color: var(--olive); }
+.nav-contact { border: 1px solid var(--olive); border-radius: 999px; padding: 9px 16px; }
+.nav-contact span { margin-left: 8px; }
+.section-wrap { width: min(1120px, 85.6%); margin: 0 auto; }
+.hero { min-height: 680px; padding: 86px 0 90px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 8%; align-items: center; position: relative; }
+.eyebrow { color: var(--olive); letter-spacing: .16em; font-size: .69rem; font-weight: 700; margin: 0 0 20px; }
+.eyebrow-dot { display: inline-block; width: 7px; height: 7px; background: var(--olive); border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+h1,h2,h3,p { margin-top: 0; }
+h1,h2,h3 { font-family: var(--font-display); }
+h1 { font-size: clamp(3.6rem,7.2vw,6.5rem); line-height: .99; letter-spacing: -.075em; margin-bottom: 22px; font-weight: 600; }
+h1 em,h2 em { font-style: normal; color: var(--olive); }
+.hero-subtitle { color: var(--muted); font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
+.hero-intro { max-width: 390px; color: #606259; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px; }
+.button { display: inline-flex; gap: 26px; align-items: center; padding: 14px 21px; border-radius: 4px; font-size: .86rem; font-weight: 600; transition: transform .2s, background .2s; }
+.button:hover { transform: translateY(-2px); }
+.button-dark { color: white; background: var(--olive-dark); }
+.button-dark:hover { background: var(--olive); }
+.hero-photo-wrap { position: relative; width: min(100%, 405px); justify-self: end; }
+.hero-photo { width: 100%; height: 475px; object-fit: cover; object-position: center 24%; border-radius: 48% 48% 4px 4px; position: relative; z-index: 1; filter: saturate(.88); }
+.photo-accent { position: absolute; width: 100%; height: 100%; top: 18px; right: -18px; border: 1px solid #aeb39b; border-radius: 48% 48% 4px 4px; }
+.photo-caption { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; color: var(--muted); font-size: .61rem; letter-spacing: .12em; }
+.hero-index { position: absolute; bottom: 28px; left: 0; color: #999b90; font-size: .63rem; letter-spacing: .15em; }
+.about { padding: 112px 0; display: grid; grid-template-columns: .9fr 1.1fr; gap: 10%; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+h2 { font-size: clamp(2.4rem,4.5vw,4rem); line-height: 1.08; letter-spacing: -.065em; font-weight: 600; margin-bottom: 0; }
+.about-text { max-width: 590px; position: relative; padding-top: 12px; }
+.quote-mark { display: block; font: 5rem/.8 Georgia,serif; color: #c3c8b3; margin-bottom: 14px; }
+.about-text > p { font-size: 1.07rem; color: #5f6158; line-height: 1.9; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.skill-tags span { border: 1px solid #d6d9ca; color: var(--olive-dark); padding: 7px 12px; border-radius: 999px; font-size: .74rem; }
+.projects { padding: 112px 0 120px; }
+.section-topline { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 44px; }
+.section-note { max-width: 270px; color: var(--muted); font-size: .9rem; margin-bottom: 5px; }
+.project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; align-items: stretch; }
+.project-card { background: var(--white); border: 1px solid #e7e8e1; border-radius: 5px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; transition: transform .25s ease, box-shadow .25s ease; }
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 15px 38px rgba(43,47,32,.07); }
+.project-image { height: 245px; overflow: hidden; background: var(--olive-soft); }
+.project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.project-card:hover .project-image img { transform: scale(1.035); }
+.project-body { padding: 27px 29px 30px; flex: 1; }
+.project-meta { color: var(--olive); font-size: .63rem; font-weight: 700; letter-spacing: .13em; margin-bottom: 11px; }
+.project-body h3 { font-size: 1.38rem; line-height: 1.3; letter-spacing: -.04em; margin-bottom: 7px; }
+.project-body p:not(.project-meta):not(.institution):not(.small-note) { color: #696b62; font-size: .89rem; line-height: 1.8; margin-bottom: 0; }
+.institution { color: #898b81; font-size: .78rem; margin-bottom: 15px; }
+.certificate { display: inline-block; margin-top: 18px; color: var(--olive-dark); background: var(--olive-soft); padding: 5px 10px; border-radius: 2px; font-size: .7rem; font-weight: 700; }
+.project-featured { background: #f0f1e9; }
+.project-featured .project-body { padding: 31px; }
+.project-featured .project-body h3 { font-size: 1.6rem; }
+.project-featured .project-image { height: 280px; }
+.ticket-image img { object-position: center; }
+.small-note { font-size: .75rem; color: var(--olive); font-weight: 700; margin: 12px 0 0; }
+.services { border-top: 1px solid var(--line); padding: 112px 0; display: grid; grid-template-columns: .85fr 1.15fr; gap: 9%; }
+.services-list { border-top: 1px solid var(--line); }
+.service-row { display: grid; grid-template-columns: 42px 1fr 20px; align-items: center; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.service-row span { font-size: .7rem; color: #96988d; }
+.service-row p { margin: 0; font-size: .96rem; font-weight: 500; }
+.service-row b { color: var(--olive); font-weight: 400; }
+.contact { padding: 0 0 100px; }
+.contact-panel { background: var(--olive-dark); color: white; border-radius: 5px; padding: clamp(32px,6vw,70px); display: grid; grid-template-columns: .8fr 1.2fr; gap: 9%; }
+.contact-panel .eyebrow { color: #c6cbb5; }
+.contact-panel h2 { font-size: clamp(2.7rem,4.6vw,4.2rem); }
+.contact-intro { color: #d6d8ce; margin: 18px 0 0; }
+.contact-links { align-self: center; }
+.contact-links > a,.contact-link-static { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.2); }
+.contact-links > a:first-child { border-top: 1px solid rgba(255,255,255,.2); }
+.contact-links span { color: #c7cabb; font-size: .74rem; }
+.contact-links strong { font-size: .9rem; font-weight: 500; overflow-wrap: anywhere; }
+.contact-links b { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 1.1rem; font-weight: 400; }
+.contact-links a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.contact-links small { color: #c7cabb; font-size: .68rem; grid-column: 1 / -1; }
+.site-footer { min-height: 95px; border-top: 1px solid var(--line); padding: 22px 7.2%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.site-footer p,.site-footer > a:last-child { font-size: .75rem; color: var(--muted); margin: 0; }
+@media (max-width: 760px) {
+  .site-header { height: auto; min-height: 72px; padding: 15px 6%; align-items: flex-start; }
+  nav { gap: 10px 16px; flex-wrap: wrap; justify-content: flex-end; font-size: .75rem; }
+  .nav-contact { padding: 5px 10px; }
+  .section-wrap { width: 88%; }
+  .hero { min-height: auto; padding: 65px 0 85px; grid-template-columns: 1fr; gap: 48px; }
+  .hero-copy { order: 1; }
+  .hero-photo-wrap { order: 2; justify-self: center; width: min(82%,350px); }
+  .hero-photo { height: 390px; }
+  .hero-index { bottom: 28px; }
+  .about,.services { grid-template-columns: 1fr; gap: 36px; padding: 75px 0; }
+  .section-topline { align-items: flex-start; flex-direction: column; margin-bottom: 30px; }
+  .section-note { max-width: 430px; }
+  .projects { padding: 75px 0; }
+  .project-grid { grid-template-columns: 1fr; gap: 17px; }
+  .project-image,.project-featured .project-image { height: 230px; }
+  .contact { padding-bottom: 60px; }
+  .contact-panel { grid-template-columns: 1fr; gap: 30px; }
+  .site-footer { padding: 22px 6%; flex-wrap: wrap; }
+}
+@media (max-width: 420px) {
+  nav a:not(.nav-contact) { display: none; }
+  h1 { font-size: 3.6rem; }
+  .hero-photo { height: 350px; }
+  .project-body,.project-featured .project-body { padding: 23px; }
+  .site-footer p { order: 3; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { scroll-behavior: auto !important; transition: none !important; }
+}
