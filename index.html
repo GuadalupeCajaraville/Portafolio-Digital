@@ -15,6 +15,7 @@
             --text-muted: #5C625C;
             --olive-main: #5B6B46;
             --olive-dark: #3E4A2F;
+            --olive-header: #4A5838;
             --olive-light: #8A9A70;
             --olive-soft: #F0F3EC;
             --gray-border: #E2E4E0;
@@ -40,7 +41,7 @@
             position: relative;
         }
 
-        /* FONDO DINÁMICO */
+        /* FONDO DINÁMICO DEGRADADO AMBIENTAL */
         .bg-glow-1, .bg-glow-2 {
             position: fixed;
             border-radius: 50%;
@@ -74,24 +75,24 @@
             100% { transform: translate(-30px, 80px) scale(0.95); }
         }
 
-        /* BARRA DE NAVEGACIÓN */
+        /* BARRA DE NAVEGACIÓN EN VERDE OLIVA MEDIO/OSCURO ELEGANTE */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(250, 250, 250, 0.85);
+            background: rgba(74, 88, 56, 0.95);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(226, 228, 224, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             transition: var(--transition);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1.1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -101,7 +102,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.45rem;
             font-weight: 700;
-            color: var(--olive-dark);
+            color: #FFFFFF;
             text-decoration: none;
             letter-spacing: -0.5px;
             display: flex;
@@ -109,8 +110,9 @@
             gap: 0.5rem;
         }
 
-        .logo span {
-            color: var(--olive-main);
+        .logo span.apellido-tnr {
+            font-family: 'Times New Roman', Times, serif;
+            color: #E2E8DC;
             font-style: italic;
         }
 
@@ -122,7 +124,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-muted);
+            color: #F0F3EC;
             font-weight: 600;
             font-size: 0.95rem;
             position: relative;
@@ -131,7 +133,14 @@
         }
 
         .nav-links a:hover {
-            color: var(--olive-dark);
+            color: #FFFFFF;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
+        /* TIPOGRAFÍA ESPECÍFICA PARA APELLIDO EN TIMES NEW ROMAN */
+        .apellido-tnr {
+            font-family: 'Times New Roman', Times, serif !important;
+            font-style: italic;
         }
 
         /* HERO SECTION CON FOTO DE PERFIL */
@@ -169,9 +178,8 @@
             letter-spacing: -1px;
         }
 
-        .hero-title span {
+        .hero-title span.apellido-tnr {
             color: var(--olive-main);
-            font-style: italic;
         }
 
         .hero-desc {
@@ -290,7 +298,7 @@
             color: var(--text-dark);
         }
 
-        /* TARJETAS CON ESPACIO PARA FOTOS REALES */
+        /* TARJETAS DE EXPERIENCIAS EN FONDO VERDE OLIVA CLARO SUAVE */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -298,10 +306,10 @@
         }
 
         .card {
-            background: var(--bg-card);
+            background: var(--olive-soft);
             border-radius: 24px;
             overflow: hidden;
-            border: 1px solid var(--gray-border);
+            border: 1px solid rgba(91, 107, 70, 0.2);
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
             display: flex;
@@ -310,14 +318,14 @@
 
         .card:hover {
             transform: translateY(-8px);
-            border-color: var(--olive-light);
+            border-color: var(--olive-main);
             box-shadow: var(--shadow-lg);
         }
 
         .card-img-container {
             height: 210px;
             width: 100%;
-            background-color: var(--gray-bg);
+            background-color: #E2E8DC;
             position: relative;
             overflow: hidden;
         }
@@ -344,12 +352,12 @@
             font-size: 0.8rem;
             font-weight: 800;
             color: var(--olive-dark);
-            background-color: var(--olive-soft);
+            background-color: #E2E8DC;
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
             width: fit-content;
             margin-bottom: 1rem;
-            border: 1px solid rgba(91, 107, 70, 0.15);
+            border: 1px solid rgba(91, 107, 70, 0.2);
         }
 
         .card-title {
@@ -375,11 +383,11 @@
             font-size: 0.85rem;
             font-weight: 700;
             color: var(--olive-dark);
-            background-color: var(--olive-soft);
+            background-color: #E2E8DC;
             padding: 0.5rem 1.1rem;
             border-radius: 50px;
             text-decoration: none;
-            border: 1px solid rgba(91, 107, 70, 0.2);
+            border: 1px solid rgba(91, 107, 70, 0.25);
             width: fit-content;
             transition: var(--transition);
         }
@@ -448,7 +456,7 @@
             color: var(--text-dark);
         }
 
-        /* CONTACTO */
+        /* CONTACTO - FONDO DEGRADADO VERDE OLIVA OSCURO */
         .contact-card {
             background: linear-gradient(135deg, #3E4A2F 0%, #222B19 100%);
             color: white;
@@ -547,8 +555,8 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fa-solid fa-leaf" style="font-size: 1.2rem; color: var(--olive-main);"></i>
-                Guadalupe <span>Cajaraville</span>
+                <i class="fa-solid fa-leaf" style="font-size: 1.2rem; color: #E2E8DC;"></i>
+                Guadalupe <span class="apellido-tnr">Cajaraville</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -559,15 +567,15 @@
         </div>
     </header>
 
-    <!-- HERO / SOBRE MÍ CON CAMBIO DE DESCRIPCIÓN SOLICITADO -->
+    <!-- HERO / SOBRE MÍ -->
     <section class="hero" id="sobre-mi">
         <div>
             <div class="hero-badge">
                 <i class="fa-solid fa-graduation-cap"></i> Estudiante de secundario
             </div>
-            <h1 class="hero-title">Guadalupe <span>Cajaraville</span></h1>
+            <h1 class="hero-title">Guadalupe <span class="apellido-tnr">Cajaraville</span></h1>
             <p class="hero-desc">
-                Mi nombre es Guadalupe Cajaraville, soy estudiante de último año en el Instituto Cristo Obrero. En los a partir del año 2025 , estuve realizando las Actividades Vinculadas al Futuro, donde aprendí liderazgo, innovación, a interactuar eficazmente con las personas, trabajar en equipo y aprender rápidamente conceptos y actividades nuevas.
+                Mi nombre es Guadalupe Cajaraville, soy estudiante de último año en el Instituto Cristo Obrero. A paritr del año 2025, estuve realizando las Actividades Vinculadas al Futuro, donde aprendí liderazgo e innovación, a interactuar eficazmente con las personas, trabajar y cooperar en equipo, y aprender rápidamente conceptos y actividades nuevas.
             </p>
             <div class="hero-actions">
                 <a href="#experiencias" class="btn-hero btn-primary">
@@ -579,16 +587,16 @@
             </div>
         </div>
 
-        <!-- ESPACIO PARA TU FOTO DE PERFIL REAL -->
+        <!-- ESPACIO PARA FOTO DE PERFIL REAL -->
         <div class="hero-img-container">
             <div class="hero-bg-shape"></div>
             <div class="profile-frame">
-                <img src="foto-perfil.jpg" alt="Guadalupe Cajaraville">
+                <img src="foto.jpg" alt="Guadalupe Cajaraville">
             </div>
         </div>
     </section>
 
-    <!-- PROYECTOS / ACTIVIDADES (TEXTO LITERAL DEL PDF Y ESPACIOS PARA FOTOS REALES) -->
+    <!-- PROYECTOS / ACTIVIDADES -->
     <section id="experiencias">
         <div class="section-header">
             <span class="section-tag">Trayectoria y Formación</span>
@@ -612,7 +620,7 @@
             <!-- 2. Educación Financiera Junior Achievement -->
             <div class="card">
                 <div class="card-img-container">
-                    <img src="educacion financiera.jpg" alt="Curso de Educación Financiera">
+                    <img src="actividad2.jpg" alt="Curso de Educación Financiera">
                 </div>
                 <div class="card-body">
                     <span class="card-year">2025</span>
@@ -705,7 +713,7 @@
             <!-- 9. Corporación Sur CABA -->
             <div class="card">
                 <div class="card-img-container">
-                    <img src="actividad9.jpg" alt="Corporación Sur CABA">
+                    <img src="sur.gif" alt="Corporación Sur CABA">
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
@@ -717,7 +725,7 @@
             <!-- 10. Jardín San José Poupponiere -->
             <div class="card">
                 <div class="card-img-container">
-                    <img src="actividad10.jpg" alt="Jardín San José Poupponiere">
+                    <img src="huerta.jpeg" alt="Jardín San José Poupponiere">
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
@@ -729,7 +737,7 @@
             <!-- 11. Centro de Simulación CABA -->
             <div class="card">
                 <div class="card-img-container">
-                    <img src="actividad11.jpg" alt="Prácticas Inmersivas Centro de Simulación">
+                    <img src="robotica.jpg" alt="Prácticas Inmersivas Centro de Simulación">
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
@@ -741,7 +749,7 @@
             <!-- 12. Visita Teatro Colón -->
             <div class="card">
                 <div class="card-img-container">
-                    <img src="actividad12.jpg" alt="Visita Teatro Colón">
+                    <img src="colon.jpeg" alt="Visita Teatro Colón">
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
@@ -753,7 +761,7 @@
             <!-- 13. Visita Colón Fábrica -->
             <div class="card">
                 <div class="card-img-container">
-                    <img src="actividad13.jpg" alt="Visita Colón Fábrica">
+                    <img src="fabrica.jpg" alt="Visita Colón Fábrica">
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
@@ -765,7 +773,7 @@
             <!-- 14. Espectáculo Teatro Colón -->
             <div class="card">
                 <div class="card-img-container">
-                    <img src="actividad14.jpg" alt="Espectáculo Teatro Colón">
+                    <img src="obra.jpeg" alt="Espectáculo Teatro Colón">
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
@@ -777,7 +785,7 @@
         </div>
     </section>
 
-    <!-- SERVICIOS (TEXTOS LITERALES DEL PDF) -->
+    <!-- SERVICIOS -->
     <section id="servicios">
         <div class="services-bg">
             <div class="section-header" style="margin-bottom: 1.5rem;">
