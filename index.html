@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Digital | Guadalupe Cajaraville</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -19,8 +19,9 @@
             --olive-soft: #F0F3EC;
             --gray-border: #E2E4E0;
             --gray-bg: #F4F5F3;
-            --shadow: 0 10px 30px -5px rgba(62, 74, 47, 0.08);
-            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-sm: 0 4px 15px rgba(62, 74, 47, 0.05);
+            --shadow-lg: 0 20px 40px rgba(62, 74, 47, 0.12);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -28,6 +29,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -35,18 +37,55 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* HEADER & NAVIGATION */
+        /* FONDO DINÁMICO */
+        .bg-glow-1, .bg-glow-2 {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.45;
+            animation: floatGlow 12s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        .bg-glow-1 {
+            width: 500px;
+            height: 500px;
+            background: #DCE3D6;
+            top: -100px;
+            left: -100px;
+        }
+
+        .bg-glow-2 {
+            width: 450px;
+            height: 450px;
+            background: #E5EADF;
+            bottom: 10%;
+            right: -100px;
+            animation-delay: -6s;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(60px, 40px) scale(1.1); }
+            100% { transform: translate(-30px, 80px) scale(0.95); }
+        }
+
+        /* BARRA DE NAVEGACIÓN */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(250, 250, 250, 0.92);
-            backdrop-filter: blur(12px);
+            background: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid var(--gray-border);
+            border-bottom: 1px solid rgba(226, 228, 224, 0.8);
+            transition: var(--transition);
         }
 
         .nav-container {
@@ -60,11 +99,14 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.45rem;
             font-weight: 700;
             color: var(--olive-dark);
             text-decoration: none;
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .logo span {
@@ -81,43 +123,48 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-muted);
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
+            position: relative;
+            padding: 0.3rem 0;
             transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: var(--olive-main);
+            color: var(--olive-dark);
         }
 
-        /* HERO SECTION */
+        /* HERO INICIAL */
         .hero {
-            padding: 9rem 2rem 4rem;
-            max-width: 900px;
+            padding: 10rem 2rem 5rem;
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background-color: var(--olive-soft);
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--olive-soft), #E3E9DC);
             color: var(--olive-dark);
-            padding: 0.4rem 1.2rem;
+            padding: 0.5rem 1.4rem;
             border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(91, 107, 70, 0.2);
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(91, 107, 70, 0.25);
+            box-shadow: var(--shadow-sm);
         }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.8rem;
-            line-height: 1.15;
+            font-size: 4.2rem;
+            line-height: 1.1;
             color: var(--text-dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
+            letter-spacing: -1px;
         }
 
         .hero-title span {
@@ -126,68 +173,114 @@
         }
 
         .hero-desc {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            margin: 0 auto 2.5rem;
-            max-width: 680px;
-            line-height: 1.7;
+            margin: 0 auto 3rem;
+            max-width: 820px;
+            line-height: 1.75;
+            font-weight: 400;
         }
 
-        /* SECTION STYLES */
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero {
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--olive-dark);
+            color: white;
+            box-shadow: 0 10px 25px rgba(62, 74, 47, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--olive-main);
+            transform: translateY(-4px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--olive-dark);
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--olive-main);
+            color: var(--olive-main);
+            transform: translateY(-4px);
+            background-color: var(--olive-soft);
+        }
+
+        /* SECCIONES GENERALES */
         section {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-header {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
             text-align: center;
         }
 
         .section-tag {
             color: var(--olive-main);
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.6rem;
             display: block;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--text-dark);
         }
 
-        /* PROJECTS / EXPERIENCES GRID */
+        /* TARJETAS DINÁMICAS */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
+            gap: 2.2rem;
         }
 
         .card {
             background: var(--bg-card);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
             border: 1px solid var(--gray-border);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--olive-light);
+            box-shadow: var(--shadow-lg);
         }
 
         .card-img {
             height: 180px;
             width: 100%;
-            background-color: var(--gray-bg);
+            background-color: var(--olive-soft);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -195,8 +288,16 @@
             justify-content: center;
         }
 
+        .card-img svg {
+            transition: var(--transition);
+        }
+
+        .card:hover .card-img svg {
+            transform: scale(1.1);
+        }
+
         .card-body {
-            padding: 1.8rem;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -204,13 +305,14 @@
 
         .card-year {
             font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--olive-main);
+            font-weight: 800;
+            color: var(--olive-dark);
             background-color: var(--olive-soft);
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
             width: fit-content;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(91, 107, 70, 0.15);
         }
 
         .card-title {
@@ -222,97 +324,101 @@
         }
 
         .card-desc {
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            line-height: 1.6;
         }
 
-        .card-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.8rem;
-            color: var(--olive-dark);
-            font-weight: 600;
-        }
-
-        /* SERVICES SECTION */
+        /* SERVICIOS */
         .services-bg {
-            background-color: var(--olive-soft);
-            border-radius: 30px;
-            padding: 4rem 3rem;
-            margin-top: 2rem;
+            background: linear-gradient(135deg, #F0F3EC 0%, #E3E9DC 100%);
+            border-radius: 36px;
+            padding: 4.5rem 3.5rem;
+            border: 1px solid rgba(91, 107, 70, 0.15);
+            box-shadow: var(--shadow-sm);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
         }
 
         .service-item {
             background: var(--bg-card);
-            padding: 1.4rem;
-            border-radius: 16px;
+            padding: 1.6rem;
+            border-radius: 20px;
             border: 1px solid var(--gray-border);
             display: flex;
             align-items: center;
-            gap: 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            gap: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .service-item:hover {
+            transform: translateX(6px);
+            border-color: var(--olive-main);
         }
 
         .service-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
             background-color: var(--olive-soft);
             color: var(--olive-main);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .service-item:hover .service-icon {
+            background-color: var(--olive-main);
+            color: white;
         }
 
         .service-text {
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 0.98rem;
             color: var(--text-dark);
         }
 
-        /* CONTACT SECTION */
+        /* CONTACTO */
         .contact-card {
-            background: linear-gradient(135deg, #3E4A2F 0%, #2B3421 100%);
+            background: linear-gradient(135deg, #3E4A2F 0%, #222B19 100%);
             color: white;
-            border-radius: 30px;
-            padding: 4.5rem 3rem;
+            border-radius: 36px;
+            padding: 5rem 3.5rem;
             text-align: center;
             position: relative;
-            box-shadow: 0 20px 40px rgba(62, 74, 47, 0.25);
+            box-shadow: 0 25px 50px rgba(62, 74, 47, 0.28);
         }
 
         .contact-card h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
         }
 
         .contact-subtext {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: rgba(255, 255, 255, 0.9);
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto 1.5rem;
-            line-height: 1.6;
+            line-height: 1.75;
         }
 
         .contact-invitation {
-            font-size: 0.98rem;
+            font-size: 1rem;
             color: #C8D6B9;
-            font-weight: 500;
-            margin-bottom: 2.5rem;
-            letter-spacing: 0.3px;
+            font-weight: 600;
+            margin-bottom: 2.8rem;
         }
 
         .contact-buttons {
@@ -323,26 +429,26 @@
         }
 
         .btn-contact {
-            padding: 1.1rem 2.2rem;
+            padding: 1.15rem 2.4rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.98rem;
+            font-weight: 700;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.8rem;
             transition: var(--transition);
         }
 
         .btn-email {
             background-color: white;
             color: var(--olive-dark);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .btn-email:hover {
             background-color: var(--olive-soft);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
         .btn-linkedin {
@@ -352,45 +458,37 @@
         }
 
         .btn-linkedin:hover {
-            background-color: rgba(255,255,255,0.22);
-            transform: translateY(-3px);
+            background-color: rgba(255,255,255,0.25);
+            transform: translateY(-4px);
         }
 
-        /* FOOTER */
         footer {
             text-align: center;
             padding: 3rem 2rem;
             color: var(--text-muted);
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             border-top: 1px solid var(--gray-border);
         }
 
-        /* RESPONSIVE */
         @media (max-width: 900px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-card {
-                padding: 3rem 1.5rem;
-            }
-
-            .contact-card h2 {
-                font-size: 2rem;
-            }
+            .hero-title { font-size: 3rem; }
+            .grid-container { grid-template-columns: 1fr; }
+            .services-bg, .contact-card { padding: 3rem 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- NAVEGACIÓN -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">Guadalupe <span>Cajaraville</span></a>
+            <a href="#" class="logo">
+                <i class="fa-solid fa-leaf" style="font-size: 1.2rem; color: var(--olive-main);"></i>
+                Guadalupe <span>Cajaraville</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#experiencias">Proyectos</a></li>
@@ -400,275 +498,334 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO / SOBRE MÍ (TEXTO LITERAL DEL PDF) -->
     <section class="hero" id="sobre-mi">
         <div class="hero-badge">
-            <i class="fa-solid fa-graduation-cap"></i> Estudiante de Secundario
+            <i class="fa-solid fa-graduation-cap"></i> Estudiante de secundario
         </div>
         <h1 class="hero-title">Guadalupe <span>Cajaraville</span></h1>
         <p class="hero-desc">
-            Soy estudiante de último año en el Instituto Cristo Obrero[cite: 2]. Durante las Actividades Vinculadas al Futuro, desarrollé compromiso, capacidad de comunicación, trabajo en equipo y una rápida adaptación para aprender conceptos y herramientas nuevas[cite: 2].
+            Mi nombre es Guadalupe Cajaraville, soy estudiante de último año en el Instituto Cristo Obrero. En los dos últimos años, estuve realizando las Actividades Vinculadas al Futuro, donde aprendí a ser responsable, a interactuar eficazmente con las personas, trabajar en equipo y aprender rápidamente conceptos y actividades nuevas.
         </p>
+        <div class="hero-actions">
+            <a href="#experiencias" class="btn-hero btn-primary">
+                Ver Proyectos <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="#contacto" class="btn-hero btn-secondary">
+                Contacto
+            </a>
+        </div>
     </section>
 
-    <!-- EXPERIENCES / PROJECTS SECTION -->
+    <!-- PROYECTOS (TEXTOS LITERALES DEL PDF CON ILUSTRACIONES DE OBJETOS) -->
     <section id="experiencias">
         <div class="section-header">
             <span class="section-tag">Trayectoria y Formación</span>
-            <h2 class="section-title">Proyectos y Capacitaciones</h2>
+            <h2 class="section-title">Proyectos</h2>
         </div>
 
         <div class="grid-container">
 
-            <!-- FCEN UBA Semana Biología -->
+            <!-- 1. Biología FCEN UBA -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#EBF0E6;">
-                        <rect width="400" height="200" fill="#EBF0E6"/>
-                        <circle cx="200" cy="100" r="45" fill="#5B6B46" opacity="0.2"/>
-                        <path d="M180,100 C180,70 220,70 220,100 C220,130 180,130 180,100 Z" fill="none" stroke="#5B6B46" stroke-width="3"/>
-                        <path d="M190,85 C210,85 210,115 190,115" fill="none" stroke="#8A9A70" stroke-width="2"/>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">FCEN UBA - Biología</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- ADN y Tubo de Ensayo -->
+                        <path d="M 35 25 Q 50 40 65 25 Q 50 60 35 75 Q 50 60 65 75" stroke="#5B6B46" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <circle cx="35" cy="25" r="4" fill="#8A9A70"/>
+                        <circle cx="65" cy="25" r="4" fill="#3E4A2F"/>
+                        <circle cx="35" cy="75" r="4" fill="#3E4A2F"/>
+                        <circle cx="65" cy="75" r="4" fill="#8A9A70"/>
+                        <line x1="42" y1="32" x2="58" y2="32" stroke="#5B6B46" stroke-width="3"/>
+                        <line x1="42" y1="68" x2="58" y2="68" stroke="#5B6B46" stroke-width="3"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2025</span>
-                    <h3 class="card-title">Facultad de Ciencias Exactas y Naturales UBA - Semana de la Biología</h3>
-                    <p class="card-desc">Exploración del campo de la biología y temas de ciencias naturales (como la extracción de ADN de una banana), ampliando mi interés por la investigación científica[cite: 2].</p>
-                    <span class="card-badge"><i class="fa-solid fa-flask"></i> Ciencias Naturales</span>
+                    <h3 class="card-title">Facultad de Ciencias Exactas y Naturales UBA- Semana de la Biología</h3>
+                    <p class="card-desc">Esta experiencia me permitió conocer más sobre el campo de la biología, explorar distintos temas relacionados con las ciencias naturales (Como por ejemplo: Extraer ADN de una banana) y ampliar mi interés por la investigación científica.</p>
                 </div>
             </div>
 
-            <!-- Junior Achievement - Educación Financiera -->
+            <!-- 2. Educación Financiera Junior Achievement -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#F4F5F3;">
-                        <rect width="400" height="200" fill="#F4F5F3"/>
-                        <rect x="140" y="60" width="120" height="80" rx="10" fill="#5B6B46" opacity="0.15"/>
-                        <circle cx="200" cy="100" r="25" fill="#5B6B46" opacity="0.3"/>
-                        <path d="M195,90 L205,90 M200,85 L200,115 M195,110 L205,110" stroke="#3E4A2F" stroke-width="2"/>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">Junior Achievement</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Gráfico de barras y Moneda -->
+                        <rect x="25" y="55" width="12" height="25" rx="3" fill="#8A9A70"/>
+                        <rect x="44" y="40" width="12" height="40" rx="3" fill="#5B6B46"/>
+                        <rect x="63" y="25" width="12" height="55" rx="3" fill="#3E4A2F"/>
+                        <circle cx="31" cy="40" r="8" fill="none" stroke="#3E4A2F" stroke-width="3"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2025</span>
-                    <h3 class="card-title">Curso de Educación Financiera - Junior Achievement Argentina</h3>
-                    <p class="card-desc">Aprendizaje de conceptos básicos de educación financiera personal, gestión de dinero, presupuestos y toma de decisiones en base a ingresos y gastos[cite: 2].</p>
-                    <span class="card-badge"><i class="fa-solid fa-certificate"></i> Certificado Acreditado</span>
+                    <h3 class="card-title">Curso de Educación Financiera - Junior Archievement Argentina</h3>
+                    <p class="card-desc">En este curso virtual aprendí los conceptos básicos de la educación financiera personal, cómo gestionar mi dinero, qué decisiones tomar basándome en mis ingresos y mis gastos, simulaciones de situaciones, cómo hacer y manejar un presupuesto, entre otras cosas.</p>
                 </div>
             </div>
 
-            <!-- Banco Ciudad -->
+            <!-- 3. Banco Ciudad -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#EBF0E6;">
-                        <rect width="400" height="200" fill="#EBF0E6"/>
-                        <path d="M150,130 L250,130 L250,90 L200,60 L150,90 Z" fill="none" stroke="#5B6B46" stroke-width="3"/>
-                        <rect x="170" y="95" width="15" height="35" fill="#5B6B46"/>
-                        <rect x="215" y="95" width="15" height="35" fill="#5B6B46"/>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">Banco Ciudad</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Billetera y Candado -->
+                        <rect x="25" y="30" width="50" height="40" rx="8" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <path d="M 55 40 L 75 40 A 10 10 0 0 1 75 60 L 55 60" fill="none" stroke="#3E4A2F" stroke-width="4"/>
+                        <circle cx="65" cy="50" r="3" fill="#8A9A70"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Taller de Educación Financiera - Banco Ciudad</h3>
-                    <p class="card-desc">Capacitación focalizada en el funcionamiento de billeteras virtuales, resolución de trámites bancarios esenciales y pautas para evitar estafas virtuales[cite: 3].</p>
-                    <span class="card-badge"><i class="fa-solid fa-wallet"></i> Billeteras Virtuales</span>
+                    <h3 class="card-title">Banco Ciudad - Taller de Educación Financiera</h3>
+                    <p class="card-desc">Fue una capacitación por parte del Banco Ciudad, donde se enfocaron en enseñarnos cómo funcionan las billeteras virtuales, como resolver asuntos esenciales relacionados al banco, y cómo evitar estafas.</p>
                 </div>
             </div>
 
-            <!-- CBC UBA -->
+            <!-- 4. CBC UBA -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#F4F5F3;">
-                        <rect width="400" height="200" fill="#F4F5F3"/>
-                        <path d="M140,70 L260,70 L260,130 L140,130 Z" fill="none" stroke="#5B6B46" stroke-width="2"/>
-                        <line x1="180" y1="70" x2="180" y2="130" stroke="#5B6B46" stroke-width="2"/>
-                        <line x1="220" y1="70" x2="220" y2="130" stroke="#5B6B46" stroke-width="2"/>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">Sede CBC UBA</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Birrete Académico -->
+                        <polygon points="50,25 80,40 50,55 20,40" fill="#5B6B46"/>
+                        <path d="M 30 46 L 30 65 Q 50 78 70 65 L 70 46" fill="none" stroke="#3E4A2F" stroke-width="4" stroke-linecap="round"/>
+                        <line x1="80" y1="40" x2="80" y2="65" stroke="#8A9A70" stroke-width="3"/>
+                        <circle cx="80" cy="67" r="3" fill="#8A9A70"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">CBC Universidad de Buenos Aires - UBA</h3>
-                    <p class="card-desc">Charla de orientación con una licenciada en psicología sobre la estructura universitaria, métodos de estudio autónomos, inscripciones e historia de la UBA[cite: 3].</p>
-                    <span class="card-badge"><i class="fa-solid fa-university"></i> Orientación Universitaria</span>
+                    <p class="card-desc">En una de las sedes del CBC, una licenciada en psicología realizó una charla sobre cómo funciona la Universidad de Buenos Aires, como por ejemplo, como inscribirnos, métodos de estudios, como manejarse autónomamente en la universidad, que es el Ciclo Básico Común CBC, breve historia de la universidad, etc.</p>
                 </div>
             </div>
 
-            <!-- FCEN UBA Ciencias de la Tierra -->
+            <!-- 5. Ciencias de la Tierra FCEN UBA -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#EBF0E6;">
-                        <rect width="400" height="200" fill="#EBF0E6"/>
-                        <circle cx="200" cy="100" r="40" fill="none" stroke="#5B6B46" stroke-width="3"/>
-                        <path d="M160,100 Q200,70 240,100" fill="none" stroke="#8A9A70" stroke-width="2"/>
-                        <path d="M170,120 Q200,140 230,120" fill="none" stroke="#8A9A70" stroke-width="2"/>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">Ciencias de la Tierra UBA</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Planeta y Lupa -->
+                        <circle cx="45" cy="45" r="25" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <path d="M 30 35 Q 45 40 60 30" stroke="#8A9A70" stroke-width="3" fill="none"/>
+                        <path d="M 25 50 Q 45 55 65 45" stroke="#8A9A70" stroke-width="3" fill="none"/>
+                        <circle cx="65" cy="65" r="14" fill="none" stroke="#3E4A2F" stroke-width="4"/>
+                        <line x1="75" y1="75" x2="88" y2="88" stroke="#3E4A2F" stroke-width="5" stroke-linecap="round"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">FCEN UBA - Semana de las Ciencias de la Tierra</h3>
-                    <p class="card-desc">Jornadas de divulgación científica con talleres interactivos, charlas con investigadores y experimentos sobre geología, ciencias de la atmósfera y oceanografía[cite: 3].</p>
-                    <span class="card-badge"><i class="fa-solid fa-earth-americas"></i> Geología y Oceanografía</span>
+                    <h3 class="card-title">Facultad de Ciencias Exactas y Naturales UBA - Semana de las Ciencias de la Tierra</h3>
+                    <p class="card-desc">Asistí a las jornadas de divulgación científica organizadas por la Universidad de Buenos Aires. Participé en talleres interactivos, charlas con investigadores y demostraciones en laboratorios sobre geología, ciencias de la atmósfera y oceanografía.</p>
                 </div>
             </div>
 
-            <!-- UCA -->
+            <!-- 6. Técnicas de Estudio UCA -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#F4F5F3;">
-                        <rect width="400" height="200" fill="#F4F5F3"/>
-                        <rect x="150" y="60" width="100" height="70" fill="#5B6B46" opacity="0.15" rx="4"/>
-                        <text x="200" y="105" font-family="'Playfair Display', serif" font-size="22" fill="#3E4A2F" text-anchor="middle" font-weight="bold">UCA</text>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">Universidad Católica Argentina</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Libro Abierto -->
+                        <path d="M 20 70 Q 50 60 80 70 L 80 35 Q 50 25 20 35 Z" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <line x1="50" y1="28" x2="50" y2="63" stroke="#3E4A2F" stroke-width="4"/>
+                        <path d="M 35 42 Q 50 35 65 42" stroke="#8A9A70" stroke-width="3" fill="none"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Taller de Técnicas de Estudios - UCA</h3>
-                    <p class="card-desc">Capacitación sobre metodologías de estudio avanzadas, integración de Inteligencia Artificial, consulta de fuentes confiables y planificación de horarios y exámenes[cite: 3, 4].</p>
-                    <span class="card-badge"><i class="fa-solid fa-brain"></i> Métodos e IA</span>
+                    <h3 class="card-title">Taller de Técnicas de Estudios para Universitarios - Universidad Católica Argentina UCA</h3>
+                    <p class="card-desc">En este taller tuve la oportunidad de capacitarme sobre distintos métodos de estudios, uso de la Inteligencia Artificial, conocer y utilizar diferentes fuentes de información, y cómo organizarse en lo que respecta los horarios, exámenes y estudios.</p>
                 </div>
             </div>
 
-            <!-- Junior Achievement - Planifico mi Futuro -->
+            <!-- 7. Planifico mi Futuro Junior Achievement -->
             <div class="card">
+                <div class="card-img">
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Tarjeta de Identificación / Currículum -->
+                        <rect x="25" y="25" width="50" height="50" rx="6" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <circle cx="40" cy="42" r="7" fill="#8A9A70"/>
+                        <line x1="53" y1="38" x2="65" y2="38" stroke="#3E4A2F" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="53" y1="46" x2="65" y2="46" stroke="#3E4A2F" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="35" y1="58" x2="65" y2="58" stroke="#5B6B46" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Curso Planifico mi Futuro - Junior Achievement</h3>
-                    <p class="card-desc">Formación práctica para la creación de redes profesionales en LinkedIn, elaboración de currículum vitae, desarrollo en entrevistas laborales y análisis de profesiones clave[cite: 4].</p>
-                    <span class="card-badge"><i class="fa-solid fa-file-invoice"></i> Armado de CV y LinkedIn</span>
+                    <h3 class="card-title">Curso Planifico mí Futuro - Junior Archievement Argentina</h3>
+                    <p class="card-desc">En este curso virtual desarrolle la capacidad de hacer contactos profesionales a través de portales virtuales (Por ejemplo Linkedin), a armar un curriculum vitae, cómo reaccionar en una entrevista laboral y a conocer carreras, oportunidades, tendencias y profesiones claves.</p>
                 </div>
             </div>
 
-            <!-- Junior Achievement - Domino mis Cuentas -->
+            <!-- 8. Domino mis Cuentas Junior Achievement -->
             <div class="card">
+                <div class="card-img">
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Hucha de Cerdito / Ahorro -->
+                        <ellipse cx="50" cy="50" rx="25" ry="18" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <circle cx="35" cy="45" r="2.5" fill="#3E4A2F"/>
+                        <path d="M 60 40 L 72 40 A 5 5 0 0 1 72 52 L 68 52" stroke="#5B6B46" stroke-width="3" fill="none"/>
+                        <line x1="45" y1="32" x2="55" y2="32" stroke="#8A9A70" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Curso Domino mis Cuentas - Junior Achievement</h3>
-                    <p class="card-desc">Desarrollo de competencias para tomar decisiones informadas, consolidar hábitos financieros saludables y administrar cuentas de forma responsable[cite: 4].</p>
-                    <span class="card-badge"><i class="fa-solid fa-coins"></i> Hábitos Financieros</span>
+                    <h3 class="card-title">Curso Domino mis Cuentas - Junior Archievement Argentina</h3>
+                    <p class="card-desc">Curso virtual en el cual desarrolle habilidades para tomar decisiones informadas sobre mis cuentas, hábitos financieros saludables y manejo de dinero de manera responsable.</p>
                 </div>
             </div>
 
-            <!-- Corporación Sur CABA -->
+            <!-- 9. Corporación Sur CABA -->
             <div class="card">
+                <div class="card-img">
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Hoja Ecología y Compostera -->
+                        <path d="M 50 20 C 25 35 25 70 50 80 C 75 70 75 35 50 20 Z" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <line x1="50" y1="20" x2="50" y2="80" stroke="#8A9A70" stroke-width="3"/>
+                        <line x1="50" y1="40" x2="35" y2="30" stroke="#8A9A70" stroke-width="2.5"/>
+                        <line x1="50" y1="55" x2="65" y2="45" stroke="#8A9A70" stroke-width="2.5"/>
+                    </svg>
+                </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Corporación Sur CABA</h3>
-                    <p class="card-desc">Taller sobre ecología urbana, técnicas para prevención de plagas en plantas, construcción de composteras y pautas para el mantenimiento de huertas[cite: 4].</p>
-                    <span class="card-badge"><i class="fa-solid fa-leaf"></i> Ecología y Huerta</span>
+                    <p class="card-desc">Taller donde nos enseñaban conceptos indispensables sobre ecología y sobre huerta, para luego aplicarlos en las prácticas. Entre esos conceptos, estaban los tips para evitar plagas en las plantas, como armar una compostera, cómo organizarnos entre los grupos y cómo mantener la huerta.</p>
                 </div>
             </div>
 
-            <!-- Jardín San José Poupponiere -->
+            <!-- 10. Jardín San José Poupponiere -->
             <div class="card">
+                <div class="card-img">
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Brote / Planta creciendo en maceta -->
+                        <path d="M 35 60 L 40 80 L 60 80 L 65 60 Z" fill="none" stroke="#3E4A2F" stroke-width="4"/>
+                        <path d="M 50 60 L 50 35" stroke="#5B6B46" stroke-width="3.5"/>
+                        <path d="M 50 45 C 35 30 35 45 50 45 Z" fill="#8A9A70" stroke="#5B6B46" stroke-width="2"/>
+                        <path d="M 50 38 C 65 23 65 38 50 38 Z" fill="#8A9A70" stroke="#5B6B46" stroke-width="2"/>
+                    </svg>
+                </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
                     <h3 class="card-title">Jardín San José Poupponiere - Huerta Orgánica</h3>
-                    <p class="card-desc">Armado de composteras, plantación de vegetación autóctona y hortalizas, acondicionamiento del espacio verde y coordinación en equipo respetando horarios y organización[cite: 4].</p>
-                    <span class="card-badge"><i class="fa-solid fa-seedling"></i> Impacto Sustentable</span>
+                    <p class="card-desc">Armamos la compostera, nos organizamos con los grupos para traer materiales, plantamos plantas autóctonas y algunos vegetales, decoramos el espacio que utilizamos, aprendimos las importancia de llegar a horario y a organizar el espacio que utilizamos.</p>
                 </div>
             </div>
 
-            <!-- Centro de Simulación CABA -->
+            <!-- 11. Centro de Simulación CABA -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#EBF0E6;">
-                        <rect width="400" height="200" fill="#EBF0E6"/>
-                        <path d="M160,130 L180,90 L220,90 L240,130" stroke="#5B6B46" stroke-width="4" fill="none"/>
-                        <circle cx="200" cy="80" r="15" fill="#3E4A2F"/>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">Centro de Simulación CABA</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Brazo Robótico -->
+                        <circle cx="50" cy="75" r="10" fill="none" stroke="#3E4A2F" stroke-width="4"/>
+                        <line x1="50" y1="65" x2="35" y2="40" stroke="#5B6B46" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="35" cy="40" r="5" fill="#8A9A70"/>
+                        <line x1="35" y1="40" x2="65" y2="25" stroke="#5B6B46" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M 60 18 L 72 25 L 63 32" stroke="#3E4A2F" stroke-width="3" fill="none"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Prácticas Inmersivas - Centro de Simulación CABA</h3>
-                    <p class="card-desc">Aplicación práctica de lógica de programación en brazos robóticos, uso de instrumental tecnológico de vanguardia y comprensión del funcionamiento técnico interno[cite: 5].</p>
-                    <span class="card-badge"><i class="fa-solid fa-robot"></i> Programación y Robótica</span>
+                    <h3 class="card-title">Prácticas Inmersivas - Centro de Simulación de la Ciudad Autónoma de Buenos Aires</h3>
+                    <p class="card-desc">Pusimos en práctica conceptos sobre programación inicial en un robot, trabajamos en equipos, aprendimos a utilizar los materiales tecnológicos que nos proporcionaban y aprendimos el detrás de los objetos tecnológicos.</p>
                 </div>
             </div>
 
-            <!-- Visita guiada del Teatro Colón -->
+            <!-- 12. Visita Teatro Colón -->
             <div class="card">
                 <div class="card-img">
-                    <svg width="100%" height="100%" viewBox="0 0 400 200" style="background:#F4F5F3;">
-                        <rect width="400" height="200" fill="#F4F5F3"/>
-                        <path d="M130,130 L130,80 L270,80 L270,130 Z" fill="none" stroke="#5B6B46" stroke-width="2"/>
-                        <polygon points="130,80 200,50 270,80" fill="#5B6B46" opacity="0.2"/>
-                        <text x="200" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#3E4A2F" text-anchor="middle" font-weight="bold">Teatro Colón</text>
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Máscaras teatrales -->
+                        <path d="M 25 35 C 25 20, 50 20, 50 35 C 50 55, 25 55, 25 35 Z" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <circle cx="33" cy="32" r="2.5" fill="#3E4A2F"/>
+                        <circle cx="42" cy="32" r="2.5" fill="#3E4A2F"/>
+                        <path d="M 32 43 Q 37 48 43 43" stroke="#3E4A2F" stroke-width="2.5" fill="none"/>
+
+                        <path d="M 50 45 C 50 30, 75 30, 75 45 C 75 65, 50 65, 50 45 Z" fill="none" stroke="#8A9A70" stroke-width="4"/>
+                        <circle cx="58" cy="42" r="2.5" fill="#3E4A2F"/>
+                        <circle cx="67" cy="42" r="2.5" fill="#3E4A2F"/>
+                        <path d="M 58 53 Q 63 48 68 53" stroke="#3E4A2F" stroke-width="2.5" fill="none"/>
                     </svg>
                 </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Visita guiada del Teatro Colon</h3>
-                    <p class="card-desc">Recorrido por las instalaciones del Teatro Colón para conocer su trayectoria histórica, áreas de producción musical, confección de vestuario y armado escenográfico[cite: 5].</p>
-                    <span class="card-badge"><i class="fa-solid fa-masks-theater"></i> Historia y Producción</span>
+                    <h3 class="card-title">Visita Teatro Colón</h3>
+                    <p class="card-desc">En esta visita al Teatro Colón nos contaron la historia del lugar, nos dieron un recorrido y nos enseñaron todo el trabajo que se hace en las obras que presentan y su trabajo previo al estreno, desde el vestuario, la música, la escenografía, etc.</p>
                 </div>
             </div>
 
-            <!-- Visita Colón Fábrica -->
+            <!-- 13. Visita Colón Fábrica -->
             <div class="card">
+                <div class="card-img">
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Perchero / Vestuario y Lienzo -->
+                        <path d="M 50 25 L 30 40 L 70 40 Z" fill="none" stroke="#5B6B46" stroke-width="3"/>
+                        <path d="M 50 25 C 50 18, 58 18, 58 23" fill="none" stroke="#3E4A2F" stroke-width="3"/>
+                        <path d="M 35 40 L 30 75 L 70 75 L 65 40 Z" fill="none" stroke="#8A9A70" stroke-width="3"/>
+                    </svg>
+                </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Visita Colón Fábrica</h3>
-                    <p class="card-desc">Exploración de los depósitos y talleres donde se conservan y elaboran las escenografías, vestuarios y lienzos utilizados en las puestas en escena[cite: 5].</p>
-                    <span class="card-badge"><i class="fa-solid fa-warehouse"></i> Escenografía y Arte</span>
+                    <h3 class="card-title">Visita Colon Fábrica</h3>
+                    <p class="card-desc">En esta oportunidad pudimos ver el almacén que contiene algunos vestuarios, objetos y lienzos de fondo que utilizan para las presentaciones en el teatro, también nos hablaron del trabajo que lleva montar una obra.</p>
                 </div>
             </div>
 
-            <!-- Espectáculo Teatro Colón -->
+            <!-- 14. Espectáculo Teatro Colón -->
             <div class="card">
+                <div class="card-img">
+                    <svg width="110" height="110" viewBox="0 0 100 100">
+                        <!-- Ticket / Entrada de Teatro -->
+                        <rect x="20" y="35" width="60" height="35" rx="4" fill="none" stroke="#5B6B46" stroke-width="4"/>
+                        <line x1="40" y1="35" x2="40" y2="70" stroke="#8A9A70" stroke-width="3" stroke-dasharray="3 3"/>
+                        <circle cx="20" cy="52.5" r="5" fill="#FAFAFA"/>
+                        <circle cx="80" cy="52.5" r="5" fill="#FAFAFA"/>
+                    </svg>
+                </div>
                 <div class="card-body">
                     <span class="card-year">2026</span>
-                    <h3 class="card-title">Espectáculo Teatro Colón - "Principio de Éxtasis"</h3>
-                    <p class="card-desc">Asistencia al ensayo general de la puesta escénica inspirada en la obra "El Aleph" del escritor Jorge Luis Borges en el Teatro Colón[cite: 6].</p>
-                    <span class="card-badge"><i class="fa-solid fa-ticket"></i> Función Literaria</span>
+                    <h3 class="card-title">Espectáculo Teatro Colón</h3>
+                    <p class="card-desc">Fuimos a ver el espectáculo "Principio de éxtasis", que está basado en el libro "El Aleph" del autor argentino Jorge Luis Borges.</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- SERVICIOS (TEXTOS LITERALES DEL PDF) -->
     <section id="servicios">
         <div class="services-bg">
             <div class="section-header" style="margin-bottom: 1.5rem;">
                 <span class="section-tag">Competencias</span>
-                <h2 class="section-title">Servicios y Habilidades</h2>
+                <h2 class="section-title">Servicios</h2>
             </div>
             <div class="services-grid">
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-code"></i></div>
-                    <div class="service-text">Programación Básica[cite: 6]</div>
+                    <div class="service-text">Programación Básica.</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <div class="service-text">Manejo de Finanzas[cite: 6]</div>
+                    <div class="service-text">Manejo de finanzas.</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-calculator"></i></div>
-                    <div class="service-text">Realizar Presupuestos Personales[cite: 6]</div>
+                    <div class="service-text">Realizar presupuestos personales.</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
-                    <div class="service-text">Asistencia a Huertas[cite: 6]</div>
+                    <div class="service-text">Asistencia a huertas.</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-file-user"></i></div>
-                    <div class="service-text">Elaboración de CVs Básico[cite: 6]</div>
+                    <div class="service-text">Elaboración y formato de currículums básicos.</div>
                 </div>
                 <div class="service-item">
                     <div class="service-icon"><i class="fa-solid fa-book-open"></i></div>
-                    <div class="service-text">Apoyo Escolar y Técnicas de Estudio[cite: 6]</div>
+                    <div class="service-text">Apoyo escolar y técnicas de estudios.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACTO -->
     <section id="contacto">
         <div class="contact-card">
             <h2>¿Conversamos sobre un nuevo proyecto?</h2>
@@ -676,22 +833,22 @@
                 ¡Gracias por visitar mi portafolio! Estoy siempre abierta a colaborar en iniciativas académicas, proyectos sustentables o nuevas oportunidades. Si te interesa lo que hago o deseas realizar una consulta, ¡no dudes en escribirme!
             </p>
             <p class="contact-invitation">
-                <i class="fa-solid fa-envelope-open-text"></i> Respondas por correo o te conectes vía LinkedIn, será un gusto ponernos en contacto[cite: 6].
+                <i class="fa-solid fa-envelope-open-text"></i> Respondas por correo o te conectes vía LinkedIn, será un gusto ponernos en contacto.
             </p>
             <div class="contact-buttons">
                 <a href="mailto:Guadalupecajaravilleacosta@gmail.com" class="btn-contact btn-email">
-                    <i class="fa-regular fa-envelope"></i> Enviar Mensaje[cite: 6]
+                    <i class="fa-regular fa-envelope"></i> Enviar Mensaje
                 </a>
                 <a href="https://linkedin.com" target="_blank" class="btn-contact btn-linkedin">
-                    <i class="fa-brands fa-linkedin"></i> Conectar en LinkedIn[cite: 6]
+                    <i class="fa-brands fa-linkedin"></i> Perfil Guadalupe Cajaraville
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 Guadalupe Cajaraville — Portafolio Digital Personal. Todos los derechos reservados[cite: 2].</p>
+        <p>&copy; 2026 Guadalupe Cajaraville — Portafolio Digital Personal. Todos los derechos reservados.</p>
     </footer>
 
 </body>
